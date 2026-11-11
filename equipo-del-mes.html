@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Equipo del Mes · Carrera Disco Volador</title>
+<style>
+:root{--bg:#f4f1ea;--fg:#17171c;--card:#fff;--bd:#d9d4c8;--mut:#6b6558;--y:#f5b800;--r:#d62839;--b:#1747c9;--tg:#9a6b00;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#090a10;--fg:#f2f2f6;--card:#14151d;--bd:#262838;--mut:#8b8da0;--tg:#f5b800}}
+:root[data-theme="dark"]{--bg:#090a10;--fg:#f2f2f6;--card:#14151d;--bd:#262838;--mut:#8b8da0;--tg:#f5b800}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:"Trebuchet MS",system-ui,sans-serif;display:flex;justify-content:center}
+main{width:100%;max-width:980px;padding:16px}
+header{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+h1{font-size:24px;margin:0;text-transform:uppercase}h1 span{color:var(--r)}h2{margin:0 0 8px;font-size:18px}
+.stripe{height:5px;background:linear-gradient(90deg,var(--y) 50%,var(--b) 50% 75%,var(--r) 75%);margin:10px 0 14px;border-radius:3px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px;margin-bottom:12px}
+.tag{font-size:12px;font-weight:700;color:var(--tg);text-transform:uppercase;letter-spacing:1px}
+.note{font-size:12px;color:var(--mut)}
+select,button{font:inherit;padding:8px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--fg);cursor:pointer}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pitch{background:linear-gradient(#0f5132,#146c43);border-radius:14px;padding:18px 10px;display:flex;flex-direction:column;gap:22px;border:2px solid rgba(255,255,255,.25)}
+.line{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.pl{background:rgba(0,0,0,.35);color:#fff;border-radius:12px;padding:8px 10px;min-width:104px;text-align:center}
+.pl b{display:block;font-size:14px}.pl small{display:block;opacity:.85}.pl .sc{font-size:18px;font-weight:800;color:#f5b800}
+.rl{font-size:11px;letter-spacing:1px;color:#cfe;text-align:center}
+.pod{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pod div{text-align:center;border:1px solid var(--bd);border-radius:12px;padding:10px}
+.pod .m{font-size:26px}.pod b{display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:640px){.two{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:5px 4px;border-bottom:1px solid var(--bd)}td:last-child,th:last-child{text-align:right}
+.demo{background:rgba(245,184,0,.18);border:1px dashed var(--y);border-radius:10px;padding:8px 10px;margin-bottom:12px;font-size:13px}
+</style></head><body><main>
+<script>
+/* CONFIGURACIÓN (opcional): la misma de index.html. Si queda comentada, la página muestra datos de ejemplo.
+window.DLL_FIREBASE={apiKey:"TU_API_KEY",authDomain:"TU_PROYECTO.firebaseapp.com",projectId:"TU_PROYECTO",appId:"TU_APP_ID"};
+*/
+</script>
+<header><h1>Equipo del <span>Mes</span></h1><div class="bar"><label class="note">Mes <select id="mes"></select></label><button onclick="tgl()">◐ Tema</button></div></header>
+<div class="stripe"></div>
+<div id="demo"></div><div id="out"></div>
+<p class="note">Cada jugador cuenta una vez por mes con su mejor puntaje de carrera. La formación (3 handlers + 4 cutters, o 2 handlers + 5 cutters) es la que suma más puntos. Los híbridos pueden ocupar cualquiera de las dos posiciones.</p>
+<script>
+const POSN={H:"Handler",C:"Cutter",M:"Híbrido"};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function setT(t){document.documentElement.setAttribute("data-theme",t);try{localStorage.setItem("th",t)}catch(e){}}
+function tgl(){setT(document.documentElement.getAttribute("data-theme")=="dark"?"light":"dark")}
+{let t="dark";try{t=localStorage.getItem("th")||"dark"}catch(e){}setT(t)}
+
+// Equipo del mes: elige entre 3H+4C y 2H+5C la formación que suma más; los híbridos (M) son comodines.
+function bestFor(players,nH,nC){
+ const by=p=>players.filter(x=>x.pos==p).sort((a,b)=>b.s-a.s),H=by("H"),C=by("C"),M=by("M");
+ const sum=a=>a.reduce((t,x)=>t+x.s,0);let best=null;
+ for(let k=0;k<=Math.min(nH,M.length);k++)for(let j=0;j<=Math.min(nC,M.length-k);j++){
+  const hs=H.slice(0,nH-k),cs=C.slice(0,nC-j),hy=M.slice(0,k+j),tot=sum(hs)+sum(cs)+sum(hy);
+  if(!best||tot>best.tot)best={tot,H:hs.concat(hy.slice(0,k)),C:cs.concat(hy.slice(k))};
+ }
+ return best}
+function teamOfMonth(players){
+ const a=bestFor(players,3,4),b=bestFor(players,2,5);
+ return b&&a&&b.tot>a.tot?Object.assign(b,{f:"2-5"}):Object.assign(a||{H:[],C:[],tot:0},{f:"3-4"})}
+
+function demoData(m){let s=0;for(const c of m)s=(s*31+c.charCodeAt(0))>>>0;const r=()=>(s=(s*1664525+1013904223)>>>0)/4294967296;
+ const a=["Rayo","Nube","Fuego","Selva","Cumbia","Mar","Cóndor","Jaguar","Vuelo","Río"],b=["Azul","Veloz","Sur","Norte","Dorado","Libre","Alto","Bravo"],n=["COL","ARG","MEX","CHL","USA","ESP","JPN","DEU"],ps=["H","H","C","C","C","M"];
+ return Array.from({length:42},(_,i)=>({n:(a[Math.floor(r()*a.length)]+" "+b[Math.floor(r()*b.length)]).toUpperCase().slice(0,16),nat:n[Math.floor(r()*n.length)],pos:ps[Math.floor(r()*ps.length)],s:Math.round(620+r()*r()*700),m}))}
+
+async function load(m){
+ const cfg=window.DLL_FIREBASE;
+ if(!cfg||!cfg.projectId)return{demo:true,players:demoData(m)};
+ const body={structuredQuery:{from:[{collectionId:"carrera_scores"}],where:{fieldFilter:{field:{fieldPath:"m"},op:"EQUAL",value:{stringValue:m}}},limit:1000}};
+ const r=await fetch("https://firestore.googleapis.com/v1/projects/"+cfg.projectId+"/databases/(default)/documents:runQuery?key="+cfg.apiKey,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+ if(!r.ok)throw new Error("Firestore respondió "+r.status);
+ const rows=await r.json(),g=(f,k)=>f&&f[k]?(f[k].stringValue!==undefined?f[k].stringValue:f[k].integerValue!==undefined?+f[k].integerValue:null):null;
+ return{demo:false,players:rows.filter(x=>x.document).map(x=>{const f=x.document.fields;return{n:g(f,"n"),nat:g(f,"nat"),pos:g(f,"pos"),s:g(f,"s"),m}}).filter(p=>p.n&&p.pos&&p.s!=null)}}
+
+const pc=p=>`<div class="pl"><b>${esc(p.n)}</b><small>${esc(p.nat)} · ${POSN[p.pos]}</small><span class="sc">${p.s}</span></div>`;
+function render(res,m){
+ const P=res.players,T=teamOfMonth(P),top=P.slice().sort((a,b)=>b.s-a.s).slice(0,3),med=["🥇","🥈","🥉"];
+ const topBy=pp=>P.filter(x=>x.pos==pp).sort((a,b)=>b.s-a.s).slice(0,3);
+ const list=a=>a.length?`<table>${a.map((p,i)=>`<tr><td>${i+1}. ${esc(p.n)}</td><td>${esc(p.nat)}</td><td>${p.s}</td></tr>`).join("")}</table>`:'<p class="note">Sin jugadores todavía.</p>';
+ document.getElementById("demo").innerHTML=res.demo?'<div class="demo">Datos de ejemplo. Configurá Firebase en este archivo para ver los puntajes reales de tus jugadores.</div>':"";
+ document.getElementById("out").innerHTML=P.length?`
+ <div class="card"><div class="tag">Equipo del mes · ${m} · formación ${T.f} · ${T.tot} puntos</div>
+ <div class="pitch"><div><div class="rl">CUTTERS</div><div class="line">${T.C.map(pc).join("")}</div></div><div><div class="rl">HANDLERS</div><div class="line">${T.H.map(pc).join("")}</div></div></div></div>
+ <div class="card"><div class="tag">Podio del mes</div><div class="pod">${top.map((p,i)=>`<div><span class="m">${med[i]}</span><b>${esc(p.n)}</b><span class="note">${esc(p.nat)} · ${POSN[p.pos]}</span><b>${p.s}</b></div>`).join("")}</div></div>
+ <div class="two"><div class="card"><h2>Top 3 handlers</h2>${list(topBy("H"))}</div><div class="card"><h2>Top 3 cutters</h2>${list(topBy("C"))}</div></div>
+ <div class="card"><h2>Top 3 híbridos</h2>${list(topBy("M"))}</div>`:'<div class="card"><p>Todavía no hay puntajes en este mes.</p></div>'}
+const sel=document.getElementById("mes"),now=new Date();
+for(let i=0;i<6;i++){const d=new Date(now.getFullYear(),now.getMonth()-i,1),v=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0"),o=document.createElement("option");o.value=v;o.textContent=v;sel.appendChild(o)}
+async function go(){const m=sel.value;try{render(await load(m),m)}catch(e){document.getElementById("out").innerHTML='<div class="card"><p>No se pudo leer el ranking: '+esc(e.message)+'</p></div>'}}
+sel.onchange=go;go();
+</script></main></body></html>

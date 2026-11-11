@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carrera Disco Volador · Clubes del Mundo</title>
+<style>
+:root{--bg:#f4f1ea;--fg:#17171c;--card:#fff;--bd:#d9d4c8;--mut:#6b6558;--y:#f5b800;--b:#1747c9;--r:#d62839;--tg:#9a6b00;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#090a10;--fg:#f2f2f6;--card:#14151d;--bd:#262838;--mut:#8b8da0;--tg:#f5b800}}
+:root[data-theme="dark"]{--bg:#090a10;--fg:#f2f2f6;--card:#14151d;--bd:#262838;--mut:#8b8da0;--tg:#f5b800}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:"Trebuchet MS",system-ui,sans-serif;display:flex;justify-content:center}
+main{width:100%;max-width:1000px;padding:16px}
+header{display:flex;justify-content:space-between;align-items:center;gap:10px}
+h1{font-size:24px;line-height:1.05;margin:0;text-transform:uppercase}h1 span{color:var(--r)}h2{margin:0 0 10px;font-size:22px}
+.stripe{height:5px;background:linear-gradient(90deg,var(--y) 50%,var(--b) 50% 75%,var(--r) 75%);margin:10px 0 14px;border-radius:3px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:0 14px;align-items:start}@media(min-width:860px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px;margin-bottom:12px}
+.tag{font-size:12px;font-weight:700;color:var(--tg);text-transform:uppercase;letter-spacing:1px}
+.txt{font-size:16px;line-height:1.45;margin:8px 0 0}
+button{display:block;width:100%;text-align:left;font:inherit;font-size:15px;padding:11px 14px;margin-top:8px;border:1px solid var(--bd);background:transparent;color:var(--fg);border-radius:12px;cursor:pointer}
+button:hover{background:var(--y);color:#1b1b1f;border-color:var(--y)}
+button small{display:block;color:var(--mut);font-size:12px;margin-top:2px}button:hover small{color:#1b1b1f}
+button.go{background:var(--fg);color:var(--bg);border-color:var(--fg);text-align:center;font-weight:700}
+button.alt{border-style:dashed}button.tg{width:auto;margin:0;padding:6px 12px;white-space:nowrap}
+.pc{display:grid;grid-template-columns:auto 1fr;gap:10px 14px;align-items:center}
+.ovr{width:72px;height:72px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:34px;font-weight:900;color:#1b1b1f;line-height:1}.ovr small{font-size:11px;letter-spacing:1px}
+.pill{display:inline-block;background:rgba(128,128,128,.22);padding:3px 8px;border-radius:999px;font-size:12px;font-weight:700}.pill.red{background:var(--r);color:#fff}
+.pn{font-size:22px;font-weight:800;display:flex;align-items:center;gap:8px;margin-top:4px}
+.pst{grid-column:1/-1;display:flex;gap:22px;text-align:center;font-size:11px;color:var(--mut)}.pst b{display:block;font-size:20px;color:var(--fg)}
+.tro{grid-column:1/-1;font-size:18px;min-height:4px}.pc .stats{grid-column:1/-1}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px 12px}
+.st{font-size:11px;color:var(--mut)}.bar{height:6px;background:rgba(128,128,128,.25);border-radius:4px;overflow:hidden;margin-top:2px}.bar i{display:block;height:100%;background:var(--y)}
+.age{float:right;font-weight:800;font-size:20px}
+.tl{font-size:12px}.th,.row{display:grid;grid-template-columns:34px minmax(0,1fr) 38px 30px 30px 30px;gap:6px;align-items:center;padding:4px 6px}.th{color:var(--mut);font-weight:700}
+.row{background:var(--c,transparent);border-radius:8px;margin-top:3px;color:#f2f2f6;text-align:right}
+.row .cl{text-align:left}.ag,.ov{border-radius:6px;text-align:center;font-weight:800;color:#1b1b1f;padding:2px 0}
+.cl{display:flex;align-items:center;gap:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.row.nat{background:rgba(245,184,0,.22);color:var(--fg)}
+.og{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:10px}
+button.oc{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:14px 8px;margin:0;background:rgba(128,128,128,.08)}
+.idg{display:grid;grid-template-columns:minmax(0,200px) 1fr;gap:16px;align-items:center}@media(max-width:560px){.idg{grid-template-columns:1fr}}
+.jv{display:flex;justify-content:center}.idf label{display:block;font-size:12px;color:var(--mut);margin-top:10px}
+select,input{font:inherit;width:100%;padding:10px;margin-top:4px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--fg)}
+.t{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:12px;min-width:440px}th,td{text-align:right;padding:5px 4px;border-bottom:1px solid var(--bd)}th:first-child,td:first-child{text-align:left}
+.cup{color:var(--tg);font-weight:800}.note{font-size:12px;color:var(--mut);margin-top:6px}
+footer{margin-top:14px}
+</style></head><body><main>
+<header><h1>Carrera <span>Disco Volador</span></h1><button class="tg" onclick="tgl()">◐ Tema</button></header><div class="stripe"></div><div id="app"></div>
+<footer><details><summary class="note">Escudos personalizados</summary><p class="note">Subí un logo (PNG, JPG, SVG o WebP) para un club o torneo. Se guarda solo en tu navegador. Usá únicamente imágenes que tengas permiso de usar.</p><select id="lgc"></select><input id="lgf" type="file" accept="image/*"><button onclick="lgReset()">Quitar el logo de este club</button><p class="note" id="lgm"></p></details><p class="note">Los nombres y referencias a clubes, ligas, federaciones y torneos se utilizan exclusivamente con fines identificativos dentro de la simulación. Esta plataforma no está afiliada, patrocinada ni avalada por las entidades mencionadas. Los escudos son ilustraciones genéricas generadas por el juego.</p></footer>
+<script>
+/* CONFIGURACIÓN PARA PUBLICAR EN TU SITIO (opcional)
+   1) Descomentá y completá con la configuración web de tu proyecto de Firebase.
+   2) Si dejás esto comentado, el juego guarda los puntajes solo en el navegador de cada jugador.
+window.DLL_FIREBASE={apiKey:"TU_API_KEY",authDomain:"TU_PROYECTO.firebaseapp.com",projectId:"TU_PROYECTO",appId:"TU_APP_ID"};
+window.DLL_RANK_URL="equipo-del-mes.html";
+*/
+</script>
+<script>
+// Clubes reales por país y división (O=Open, W=Femenina, M=Mixta). Fuentes: WUCC 2026, EUCF 2026, nacionales de clubes (USAU, CUC, UKU, Colombia), AOUC 2025, PAUC 2025.
+// b = fuerza base del país; en cada lista los primeros son los más fuertes. Las estadísticas del juego son simuladas.
+const D={
+USA:{n:"Estados Unidos",b:5,
+O:"Revolver|Chicago Machine|PoNY|Rhino Slam!|Truck Stop|Sockeye|DiG|Ring of Fire|Johnny Bravo|Philadelphia Pacmen|Sub Zero|Raleigh-Durham United|SoCal Condors|Chain Lightning|Austin Doublewide|Virginia Vault|Florida Untied|Red Tide",
+W:"Brute Squad|Fury|Scandal|Molly Brown|BENT|Seattle Riot|Schwa|Phoenix|Parcha|Flipside|Grit|Nightlock|Minneapolis Pop|Chicago Nemesis|Dallas Dimes|Philadelphia Flight|Colorado Kelp|DC Agency|Heist",
+M:"Hybrid|XIST|shame.|Drag’n Thrust|Slow|Lawless|Austin Disco Club|Sprocket|Polar Bears|Toro|Rally|Seattle Mixtape|Space Force|Tower|AMP|Mile High Trash|Conspiracy"},
+CAN:{n:"Canadá",b:4,
+O:"Toronto GOAT|Montreal Mephisto|Vancouver Furious George|Winnipeg General Strike|Ottawa Phoenix|Alberta AFC Rumble|Halifax Red Circus|Quebec Manic|Durham Houndd|Vancouver Blackfish",
+W:"Toronto 6ixers|Quebec Iris|Vancouver Sea Cows|Vancouver Traffic|Alberta Remix|Ottawa Stella|Halifax Salty|Toronto Tiff’s Team|Winnipeg Fusion|Newfoundland Tempest",
+M:"Montreal Odyssée|Richmond Royals|Toronto Union|Winnipeg PBHG|Surrey Super Dumplings|Quebec City Quest|Vancouver T.T|Kamloops Parched|Ottawa Crank|Quebec Harfang|Fredericton Spawn|Cambridge Koda|Tobe!"},
+GBR:{n:"Gran Bretaña",b:4,
+O:"Clapham|Chevron Action Flash|Bristol Open|SMOG Open|SMASH’D|Ka-Pow!|Little Fishmonsters|Alba|SOLENT Open",
+W:"Iceni|Spice|SMOG|Bristol Women|SYC|LMU|Horizon|SCRAM",
+M:"Deep Space|Leamington Lemmings|Reading Ultimate|BN1|Thundering Herd|Glasgow Ultimate|Heck|Newcastle Brown|GUXYZ|RU2|Hillhead|SOLENT Mixed|Hillhead XYZ"},
+JPN:{n:"Japón",b:3,
+O:"Nomadic Tribe|Osaka Spirits|Buzz Bullets|Technicolor|WINO|Heat Haze|Osaka Seikei Univ. Plum Bonds|Waseda Univ. SONICS|Nippon Sport Sci. Univ. Barbarians|Kwansei Gakuin ARROWS",
+W:"Tokyo Mavericks|MUD|Swampybarg|HUCK|Nippon Sport Sci. Univ. Barbarians W|Hosei Univ. ASA-MAC’S|Tokyo Metropolitan Univ. Butterfly|Utsunomiya Univ. Chaozu",
+M:"AMATIAS|JANDLUX|RATELS|IKU!|CRAZY|sloth force"},
+COL:{n:"Colombia",b:3,
+O:"Euforia|Makawua|Comunidad El Oso|Uro Monster|Flota Chancle|Mamoots|Xaquima|Voltaje|Evolution|Instinto|Kíe|Nitro|Urutaú|DS|Discountry|Zeppelin",
+W:"Macana|Revolution Pro|Aerosoul|Warriors|Bamboo|Fuerza Natural|La Séptima",
+M:"Crash|Academia|Macondo|Kalagend|Zen|Voltaje Mixto|Halal|Yopo|Fusión Falcons|Fénix Mix|Villamaná|Okavango|Cajamarca|Pablo VI|REvelión|Fire|Aloha"},
+AUS:{n:"Australia",b:3,O:"Sunder|Melbourne Juggernaut|I-Beam|Fyshwick|Krank|Outbreak Mountain|Hot Chilly",W:"Ellipsis|Rogue|Manly Ripped|GWS Blaze|Factory Flash|Sugar Magnolias|Spicy Chilly|Phoenix|Lunch Box|Wollongong",M:"Manly|Chilly|Brisbaneites|Friskee"},
+DEU:{n:"Alemania",b:4,O:"Wall City|Heidees Open|Bad Skid|Hardfisch|7 Schwaben|Bora",W:"Heidees|JinX Midnight|Mainzelrenner|Seagulls Hamburg|Mainzelmädchen",M:"Zamperl|Tiefseetaucher|Disconnection|Hässliche Erdferkel|Frühmix|W.underteam|Colorado|Eintracht Frankfurt"},
+FRA:{n:"Francia",b:3,O:"Tchac|NLSU Iznogood|Mr Friz|Tsunami du Loing|TUC Ultimate|Roazhon Ultimate|Magic Disc Angers|PUC Open",W:"YAKA|PUC Ultimate|JAKA|Lillipuc",M:"Bordeaux|Monkey Grenoble|33 Tours|Sesquidistus"},
+ITA:{n:"Italia",b:3,O:"BFD La Fotta|Cotarica Grandes|CUS Padova Barbastreji|CUSB Open|Canieporci|One Tribe|360 UT Milan|PGS Smile Rams Blu|Metacarpi|Ultimate Fano",W:"BFD Shout|Tequila Boom Boom|CUSB Shout",M:"BFD Redshot|DiscoBolo|CUS Padova Rangers|Alligators Masi"},
+ESP:{n:"España",b:2,O:"Quijotes",W:"Sharks Women|Ultimatum Women",M:"Guayota Tenerife|Disctèrics|Ultimatum Valladolid"},
+NZL:{n:"Nueva Zelanda",b:2,O:"Wellington Wildcats|Otakaro",W:"Blueberries",M:""},
+BEL:{n:"Bélgica",b:4,O:"Mooncatchers|Gentle|Freezzz Beezzz|Eclipse",W:"Mooncup|Gentle Women",M:"Gentle Mixto|Flying Rabbits"},
+NLD:{n:"Países Bajos",b:3,O:"GRUT Open|UFO Utrecht|Force Elktro",W:"GRUT",M:"Panic|Remix Den Haag"},
+AUT:{n:"Austria",b:3,O:"Catchup Graz|ECHO Vienna",W:"Catchup|Mantis",M:"Mosquitos Klosterneuburg|Ultimate Primates|Wiener Mischung"},
+IRL:{n:"Irlanda",b:2,O:"Ranelagh|XVI",W:"Dublin Gravity|Flame",M:"PELT|Rebel"},
+CZE:{n:"Chequia",b:3,O:"3SB|FUJ|Terrible Monkeys",W:"3SB Women|East Block",M:"Left Overs"},
+CHE:{n:"Suiza",b:2,O:"Freespeed Basel|Flying Angels Bern|Løsanson|Panthers Bern|Ratrac Bern Ultimate|Jurassic Pack",W:"FABulous|WEST",M:"ZU Splash|Crazy Dogs|FUcZH"},
+EST:{n:"Estonia",b:2,O:"",W:"",M:"Tartu Turbulence"},
+POL:{n:"Polonia",b:2,O:"Ravens Wrocław",W:"Troubles Warsaw|Ravens Wrocław",M:"Savage Ultimate|Sky This|Aethers Warsaw"},
+SWE:{n:"Suecia",b:2,O:"KFUM Örebro Frisbee",W:"KFUM Örebro Frisbee",M:""},
+HUN:{n:"Hungría",b:2,O:"",W:"Heroes Flying Disc",M:"Heroes Flying Disc Mixto|DEAC-LoL|OUT"},
+FIN:{n:"Finlandia",b:2,O:"",W:"",M:"Helsinki Ultimate|Espoon Rennot Heittelijä"},
+DNK:{n:"Dinamarca",b:2,O:"KFK|Aarhus",W:"Copenhagen Hucks",M:""},
+TUR:{n:"Turquía",b:2,O:"Zoom Ultimate",W:"Zoom Rush",M:"Fatih"},
+MEX:{n:"México",b:3,O:"Aguilas|Baja Ultimate",W:"Venado Azul|Condor Ultimate",M:"Avalon"},
+ARG:{n:"Argentina",b:2,O:"",W:"Wakanda",M:"Hammers"},
+CHL:{n:"Chile",b:1,O:"Ultimate Wolves",W:"",M:""},
+URY:{n:"Uruguay",b:1,O:"",W:"",M:"Charrúa"},
+VEN:{n:"Venezuela",b:2,O:"Warao",W:"Spanglish",M:""},
+PAN:{n:"Panamá",b:1,O:"",W:"Fieras",M:"Top Mix"},
+DOM:{n:"República Dominicana",b:2,O:"Blue Devils",W:"Meclao’",M:"Mecaló"},
+IND:{n:"India",b:1,O:"Flywild",W:"",M:"Airborne|High Tide"},
+ZAF:{n:"Sudáfrica",b:2,O:"Rex",W:"",M:"Chilli Heat"},
+TWN:{n:"Taipéi Chino",b:2,O:"",W:"",M:"SuperNova"},
+PHL:{n:"Filipinas",b:3,O:"",W:"",M:""},
+SGP:{n:"Singapur",b:3,O:"Koels",W:"Pangolins",M:"Freakshow Singapore"},HKG:{n:"Hong Kong",b:2,O:"",W:"",M:"Fireflies|Hong Kong Neon"},KOR:{n:"Corea del Sur",b:1,O:"",W:"",M:"Baekho"},MYS:{n:"Malasia",b:2,O:"Hornbills",W:"",M:""},ROU:{n:"Rumania",b:2,O:"AIM",W:"",M:"NUF"},SVK:{n:"Eslovaquia",b:1,O:"Outsiterz",W:"Outsisterz",M:""},SVN:{n:"Eslovenia",b:1,O:"",W:"",M:"Rubber Duckies"},
+WLD:{n:"Circuito mundial",b:3,O:"",W:"",M:""}
+};
+const CL=[];
+for(const c in D)for(const d of["O","W","M"])D[c][d].split("|").filter(Boolean).forEach((n,i)=>{const t=Math.max(1,Math.min(5,D[c].b+(i<2?1:i<6?0:-1)));CL.push({n,c,d,t,min:(t-1)*12,k:"U"})});
+// Ultimate de playa: selecciones nacionales (top 10 playa WFDF + Colombia)
+const BN=["USA","CAN","ESP","DEU","GBR","FRA","AUS","POL","BEL","PHL","COL"];
+const BE=BN.map((c,i)=>({n:"Selección de "+D[c].n,c,d:"B",t:Math.max(1,Math.min(5,D[c].b+(i<3?1:0))),min:0,k:"B"}));BE.forEach(b=>b.min=(b.t-1)*10);
+// Masters (WMUCC 2026, Nottingham). Niveles: M=Masters, G=Grand Masters, X=Great Grand Masters. Edades de cada nivel: regla del juego.
+const LVN={M:"Masters",G:"Grand Masters",X:"Great Grand Masters"};
+const MS=[["O","M","USA","Boneyard|Old Bay|Woolly Mammoth|H.I.P Replacements|Voltron 2020|Minimum Effort"],["O","M","GBR","Clapham Masters"],["O","M","CAN","Dead Circus|STILL"],["O","M","ARG","FIERRO"],["M","M","USA","Atlanta Fawkes|regret.|Crown|sno patrol|Slower|Anti Social SoCal Club|LAST"],["M","M","CAN","Qold|Big Cat and the Kittens|Harfang|FY Ultimate"],["M","M","JPN","SeeKers"],["M","M","DEU","Mainzelrentner"],["M","M","ZAF","Long Donkeys"],["M","M","AUS","Adelaide Old Guard"],["M","M","GBR","Reading Ultimate"],["M","M","COL","Makawua Ultimate Club"],["W","M","USA","Old News|Ripe|Soar!|Barrel-Aged|Big Tendinitis|PUMAS"],["O","G","USA","Surly GM|Shadows|Johnny Walker"],["M","G","USA","Surly GMX|Embers|Dial-Up"],["W","G","USA","Wisconsin Bitter|Molly Blue"],["W","G","CAN","Nostalgia"],["O","X","USA","Surly GGM|Johnny Cashed|Graveyard"],["O","X","JPN","Beers"],["O","X","CAN","TOAST"],["M","X","USA","Endless Sunset GGMX|Babymaker"],["M","X","CAN","Max Power"],["W","X","CAN","Vintage|Trophy Wives"],["W","X","USA","Nor’Easter"]];
+const MAS=[];MS.forEach(([d,lv,c,s])=>s.split("|").forEach((n,i)=>MAS.push({n,c,d,lv,t:Math.max(1,Math.min(5,D[c].b+(i<2?1:0))),min:0,k:"S"})));
+const mlv=()=>age<40?"M":age<45?"G":"X";
+const ALL=CL.concat(MAS);
+// Circuitos por evento: [nombre, nivel]
+const DGE=[["Supreme Flight Open",3],["Big Easy Open",3],["Queen City Classic",3],["Jonesboro Open",3],["Barbasol Open at Austin",3],["Northwest Championship",3],["Kansas City Wide Open",3],["Swedish Open",3],["Ledgestone Open",3],["Preserve Championship",3],["LWS Open at Idlewild",3],["Green Mountain Championship",4],["MVP Open x OTB",4],["Powerball Cup",4],["PDGA Champions Cup",5],["European Open",5],["PDGA Pro World Championship",5],["US Disc Golf Championship",5],["DGPT Tour Championship",5]];
+const FRE=[["FPA World Championships",5],["WFDF World Overall Championships (WOC)",5]];
+const GUT=[["World Guts Club Championships (WGCC)",5],["WFDF World Overall Championships (WOC)",5]];
+const DC={U:{n:"Ultimate",h:["PJ","G","A","B"]},B:{n:"Ultimate de playa",h:["PJ","G","A","B"]},S:{n:"Masters (WMUCC)",h:["PJ","G","A","B"]},G:{n:"Disc golf",h:["Eventos","Top 10","Vict.","Majors"]},F:{n:"Freestyle",h:["Eventos","Podios","Títulos"]},T:{n:"Guts",h:["Eventos","Podios","Títulos"]}};
+const DV={O:"Open",W:"Femenina",M:"Mixta"};
+const AMER=["USA","CAN","MEX","ARG","CHL","URY","VEN","PAN","DOM","COL"];
+const EUR=["GBR","DEU","FRA","ITA","ESP","BEL","NLD","AUT","IRL","CZE","CHE","EST","POL","SWE","HUN","FIN","DNK","TUR","ROU","SVK","SVN"];
+// Torneos de selecciones (WFDF). Año de juego = 2027 + (edad - 16).
+const NEV=[{n:"Campeonato Mundial Juvenil (WJUC)",ok:(y,a)=>y%2==0&&a<=19,dc:"U"},{n:"Campeonato Mundial Sub-24 (WU24)",ok:(y,a)=>y%2==1&&a<=24,dc:"U"},{n:"Juegos Mundiales (World Games)",ok:(y,a)=>y%4==1,dc:"U"},{n:"Mundial de Ultimate de Playa (WBUC)",ok:(y,a)=>y%2==1,dc:"B"},{n:"Campeonato Mundial de Selecciones (WUC)",ok:(y,a)=>y%4==0,dc:"U"}];
+const FOC=[["f","Físico"],["l","Lanzamiento"],["v","Visión"],["s","Espíritu de juego"]];
+// Envejecimiento por disciplina: [edad desde la que baja el nivel, pérdida máxima por temporada]. CAP = edad máxima para seguir en esa disciplina (regla del juego).
+const AGE={U:[32,3],B:[34,3],S:[35,2],G:[45,2],F:[42,2],T:[36,2]},CAP={U:42,B:45,S:55,G:65,F:60,T:60};
+let P,H=[],cur,age,dv,dc,nat,arm,num,sex,pname,pos="H",inGame=false,usedS=[],TRS=[];
+const R=Math.random,rd=(a,b)=>a+Math.floor(R()*(b-a+1)),pick=(a,n)=>a.slice().sort(()=>R()-.5).slice(0,n);
+const $=id=>id=="app"?{set innerHTML(x){document.getElementById("app").innerHTML=inGame?`<div class="grid"><div>${x}</div><aside><div class="card"><div class="tag">Línea de carrera</div>${tline()}</div></aside></div>`:x}}:document.getElementById(id);
+const KIT={USA:["#1f3a8a","#fff","🇺🇸"],CAN:["#d52b1e","#fff","🇨🇦"],GBR:["#f2f2f2","#1d2f6f","🇬🇧"],JPN:["#1a3a8f","#fff","🇯🇵"],COL:["#f7d117","#1c3f94","🇨🇴"],AUS:["#f4c20d","#0b6b3a","🇦🇺"],DEU:["#f2f2f2","#111","🇩🇪"],FRA:["#1c3f94","#fff","🇫🇷"],ITA:["#1565c0","#fff","🇮🇹"],ESP:["#c8102e","#f7d117","🇪🇸"],NZL:["#111","#fff","🇳🇿"],BEL:["#c8102e","#f7d117","🇧🇪"],NLD:["#f26a1b","#fff","🇳🇱"],AUT:["#c8102e","#fff","🇦🇹"],IRL:["#169b62","#fff","🇮🇪"],CZE:["#c8102e","#fff","🇨🇿"],CHE:["#d52b1e","#fff","🇨🇭"],EST:["#0072ce","#fff","🇪🇪"],POL:["#f2f2f2","#dc143c","🇵🇱"],SWE:["#f7d117","#00529b","🇸🇪"],HUN:["#c8102e","#fff","🇭🇺"],FIN:["#f2f2f2","#003580","🇫🇮"],DNK:["#c8102e","#fff","🇩🇰"],TUR:["#e30a17","#fff","🇹🇷"],MEX:["#006847","#fff","🇲🇽"],ARG:["#75aadb","#fff","🇦🇷"],CHL:["#d52b1e","#fff","🇨🇱"],URY:["#5bb4e5","#111","🇺🇾"],VEN:["#7a1f3d","#f7d117","🇻🇪"],PAN:["#d21034","#fff","🇵🇦"],DOM:["#002d62","#fff","🇩🇴"],IND:["#1e63b5","#ff9933","🇮🇳"],ZAF:["#f7c600","#007749","🇿🇦"],TWN:["#1a3a8f","#fff","🇹🇼"],PHL:["#0038a8","#fcd116","🇵🇭"],SGP:["#ef3340","#fff","🇸🇬"],HKG:["#de2910","#fff","🇭🇰"],KOR:["#cd2e3a","#fff","🇰🇷"],MYS:["#010066","#fc0","🇲🇾"],ROU:["#fcd116","#002b7f","🇷🇴"],SVK:["#0b4ea2","#fff","🇸🇰"],SVN:["#005da4","#fff","🇸🇮"]};
+const jersey=(c,name,n,w)=>{const k=KIT[c]||["#444","#fff"],nm=String(name).toUpperCase().trim().slice(0,16),wd=nm.split(" ").filter(Boolean),h=Math.ceil(wd.length/2),ln=nm.length>9&&wd.length>1?[wd.slice(0,h).join(" "),wd.slice(h).join(" ")]:[nm],L=Math.max(1,...ln.map(t=>t.length)),fs=Math.max(8,Math.min(ln.length>1?15:19,Math.floor(86/(L*.64))));return `<svg viewBox="0 0 200 190" width="${w||150}" style="max-width:100%"><path d="M60 12l-48 26 20 40 22-10v108h92V68l22 10 20-40-48-26c-8 14-20 20-40 20s-32-6-40-20z" fill="${k[0]}" stroke="${k[1]}" stroke-width="4"/>${ln.map((t,i)=>`<text x="100" y="${ln.length>1?70+i*(fs+3):84}" text-anchor="middle" font-size="${fs}" font-weight="800" fill="${k[1]}" font-family="system-ui" textLength="${Math.min(86,Math.round(t.length*fs*.64))}" lengthAdjust="spacingAndGlyphs">${t}</text>`).join("")}<text x="100" y="150" text-anchor="middle" font-size="68" font-weight="900" fill="${k[1]}" font-family="system-ui">${n}</text></svg>`};
+const POSN={H:"Handler",C:"Cutter",M:"Híbrido"},PF={H:[.7,1.4,1],C:[1.4,.7,1],M:[1,1,1.25]};
+const hs=s=>{let h=0;for(const ch of String(s))h=(h*31+ch.charCodeAt(0))>>>0;return h};
+const LOGOS={}; // nombre del club -> data URI de un logo real (PNG/SVG/WebP) que subas; si no hay, se dibuja un escudo genérico
+function crest(n,sz){sz=sz||26;if(LOGOS[n])return `<img src="${LOGOS[n]}" width="${sz}" height="${sz}" alt="">`;const h=hs(n),a=h%360,b=(a+40+h%80)%360,ini=String(n).replace(/[^A-Za-zÀ-ú ]/g,"").split(" ").filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase()||"?";return `<svg width="${sz}" height="${sz}" viewBox="0 0 40 40" style="flex:none"><path d="M20 2l16 5v13c0 10-8 16-16 19C12 36 4 30 4 20V7z" fill="hsl(${a} 65% 38%)" stroke="hsl(${b} 80% 62%)" stroke-width="3"/><text x="20" y="25" text-anchor="middle" font-size="13" font-weight="800" fill="#fff" font-family="system-ui">${ini}</text></svg>`}
+const ST=(x,y,r,f)=>{const p=[];for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,q=i%2?r*.4:r;p.push((x+q*Math.cos(a)).toFixed(1)+","+(y+q*Math.sin(a)).toFixed(1))}return `<polygon points="${p.join(" ")}" fill="${f}"/>`};
+const HH=(...c)=>c.map((x,i)=>`<rect y="${20/c.length*i}" width="30" height="${20/c.length+.2}" fill="${x}"/>`).join(""),VV=(...c)=>c.map((x,i)=>`<rect x="${30/c.length*i}" width="${30/c.length+.2}" height="20" fill="${x}"/>`).join(""),RC=(x,y,w,h,f)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${f}"/>`,CI=(x,y,r,f)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${f}"/>`;
+const UJ=`<rect width="30" height="20" fill="#012169"/><path d="M0 0L30 20M30 0L0 20" stroke="#fff" stroke-width="4"/><path d="M0 0L30 20M30 0L0 20" stroke="#c8102e" stroke-width="1.6"/><path d="M15 0V20M0 10H30" stroke="#fff" stroke-width="6"/><path d="M15 0V20M0 10H30" stroke="#c8102e" stroke-width="3.6"/>`;
+const CRES=(x,y,r,f,bg)=>CI(x,y,r,f)+CI(x+r*.3,y,r*.82,bg);
+const FL={
+COL:RC(0,0,30,10,"#fcd116")+RC(0,10,30,5,"#003893")+RC(0,15,30,5,"#ce1126"),
+USA:HH(...Array.from({length:13},(_,i)=>i%2?"#fff":"#b22234"))+RC(0,0,13,10.8,"#3c3b6e")+[2.5,6.5,10.5].map(x=>[2.5,5.4,8.2].map(y=>ST(x,y,1.1,"#fff")).join("")).join(""),
+CAN:RC(0,0,30,20,"#fff")+RC(0,0,7.5,20,"#d52b1e")+RC(22.5,0,7.5,20,"#d52b1e")+`<path d="M15 3.5l1.6 3.2 2.2-1-.6 4.4 2.4-1.8-.9 3 2.2.6-4.2 3.6.4 2.1h-3.4v3h-1.4v-3h-3.4l.4-2.1-4.2-3.6 2.2-.6-.9-3 2.4 1.8-.6-4.4 2.2 1z" fill="#d52b1e"/>`,
+GBR:UJ,
+JPN:RC(0,0,30,20,"#fff")+CI(15,10,6,"#bc002d"),
+AUS:`<rect width="30" height="20" fill="#00008b"/><g transform="scale(.5)">${UJ}</g>`+ST(7.5,15,2.8,"#fff")+ST(22,4,1.2,"#fff")+ST(26,9,1.2,"#fff")+ST(22,15,1.2,"#fff")+ST(18,9,1.2,"#fff"),
+DEU:HH("#000","#dd0000","#ffce00"),FRA:VV("#0055a4","#fff","#ef4135"),ITA:VV("#009246","#fff","#ce2b37"),
+ESP:RC(0,0,30,5,"#aa151b")+RC(0,5,30,10,"#f1bf00")+RC(0,15,30,5,"#aa151b"),
+NZL:`<rect width="30" height="20" fill="#00247d"/><g transform="scale(.5)">${UJ}</g>`+[[22,4],[26,9],[22,16],[18,9]].map(p=>ST(p[0],p[1],1.5,"#cc142b")).join(""),
+BEL:VV("#000","#fdda24","#ef3340"),NLD:HH("#ae1c28","#fff","#21468b"),AUT:HH("#ed2939","#fff","#ed2939"),IRL:VV("#169b62","#fff","#ff883e"),
+CZE:HH("#fff","#d7141a")+`<polygon points="0,0 15,10 0,20" fill="#11457e"/>`,
+CHE:RC(0,0,30,20,"#d52b1e")+RC(13,4,4,12,"#fff")+RC(9,8,12,4,"#fff"),
+EST:HH("#0072ce","#000","#fff"),POL:HH("#fff","#dc143c"),
+SWE:RC(0,0,30,20,"#006aa7")+RC(9,0,3.4,20,"#fecc00")+RC(0,8.3,30,3.4,"#fecc00"),
+HUN:HH("#ce2939","#fff","#477050"),
+FIN:RC(0,0,30,20,"#fff")+RC(8,0,4,20,"#003580")+RC(0,8,30,4,"#003580"),
+DNK:RC(0,0,30,20,"#c8102e")+RC(9,0,3.2,20,"#fff")+RC(0,8.4,30,3.2,"#fff"),
+TUR:RC(0,0,30,20,"#e30a17")+CRES(11,10,5,"#fff","#e30a17")+ST(17.5,10,2.2,"#fff"),
+MEX:VV("#006847","#fff","#ce1126")+CI(15,10,2.6,"#8c6a2b"),
+ARG:HH("#74acdf","#fff","#74acdf")+CI(15,10,2,"#f6b40e"),
+CHL:RC(0,0,30,10,"#fff")+RC(0,10,30,10,"#d52b1e")+RC(0,0,10,10,"#0039a6")+ST(5,5,3,"#fff"),
+URY:HH(...Array.from({length:9},(_,i)=>i%2?"#0038a8":"#fff"))+RC(0,0,11,11,"#fff")+CI(5.5,5.5,2.8,"#fcd116"),
+VEN:HH("#ffcc00","#00247d","#cf142b")+[0,1,2,3,4,5,6,7].map(i=>CI(6+i*2.5,10.5-Math.sin(i/7*Math.PI)*1.8,.55,"#fff")).join(""),
+PAN:RC(0,0,15,10,"#fff")+RC(15,0,15,10,"#d21034")+RC(0,10,15,10,"#005293")+RC(15,10,15,10,"#fff")+ST(7.5,5,3,"#005293")+ST(22.5,15,3,"#d21034"),
+DOM:RC(0,0,30,20,"#fff")+RC(0,0,13,8.5,"#002d62")+RC(17,11.5,13,8.5,"#002d62")+RC(17,0,13,8.5,"#ce1126")+RC(0,11.5,13,8.5,"#ce1126"),
+IND:HH("#ff9933","#fff","#138808")+`<circle cx="15" cy="10" r="2.6" fill="none" stroke="#000080" stroke-width=".8"/>`,
+ZAF:RC(0,0,30,10,"#de3831")+RC(0,10,30,10,"#002395")+`<path d="M0 2.5L11 10L0 17.5M11 10H30" stroke="#fff" stroke-width="7" fill="none"/><path d="M0 2.5L11 10L0 17.5M11 10H30" stroke="#007749" stroke-width="4.4" fill="none"/><polygon points="0,4 6.5,10 0,16" fill="#000"/>`,
+TWN:RC(0,0,30,20,"#fe0000")+RC(0,0,15,10,"#000095")+CI(7.5,5,3.4,"#fff")+CI(7.5,5,2.5,"#000095")+CI(7.5,5,1.9,"#fff"),
+PHL:HH("#0038a8","#ce1126")+`<polygon points="0,0 14,10 0,20" fill="#fff"/>`+CI(4,10,1.7,"#fcd116"),
+SGP:HH("#ef3340","#fff")+CRES(6.5,5,3.8,"#fff","#ef3340")+[[10.5,3],[12.2,4.3],[11.5,6.2],[9.5,6.2],[8.9,4.3]].map(p=>CI(p[0],p[1],.55,"#fff")).join(""),
+HKG:RC(0,0,30,20,"#de2910")+ST(15,10,5,"#fff"),
+KOR:RC(0,0,30,20,"#fff")+`<path d="M11 10a4 4 0 0 1 8 0z" fill="#cd2e3a"/><path d="M11 10a4 4 0 0 0 8 0z" fill="#0047a0"/>`+[[3,2.5],[27,2.5],[3,17.5],[27,17.5]].map(p=>RC(p[0]-2,p[1]-1.5,4,.8,"#000")+RC(p[0]-2,p[1]+.7,4,.8,"#000")).join(""),
+MYS:HH(...Array.from({length:14},(_,i)=>i%2?"#fff":"#cc0001"))+RC(0,0,15,11,"#010066")+CRES(6,5.5,3.4,"#fc0","#010066")+ST(10.5,5.5,2.2,"#fc0"),
+ROU:VV("#002b7f","#fcd116","#ce1126"),
+SVK:HH("#fff","#0b4ea2","#ee1c25")+RC(6,5,7,9,"#ee1c25")+RC(8.8,6,1.4,7,"#fff")+RC(7.5,8,4.4,1.3,"#fff"),
+SVN:HH("#fff","#005da4","#ed1c24")+RC(5,3,6,7,"#005da4")+`<path d="M5.5 9l2.5-3 2.5 3z" fill="#fff"/>`,
+WLD:RC(0,0,30,20,"#1d4ed8")+`<circle cx="15" cy="10" r="7" fill="none" stroke="#fff" stroke-width="1"/><ellipse cx="15" cy="10" rx="3" ry="7" fill="none" stroke="#fff" stroke-width="1"/><path d="M8 10H22" stroke="#fff" stroke-width="1"/>`
+};
+const fg=(c,w)=>{w=w||20;return `<svg viewBox="0 0 30 20" width="${w}" height="${Math.round(w*2/3)}" style="vertical-align:-2px;border-radius:2px;box-shadow:0 0 0 1px rgba(128,128,128,.35)">${FL[c]||RC(0,0,30,20,"#777")}</svg>`};
+const gmul=()=>(P.path=="F"&&age<19?1.3:P.path=="R"?.85:1)*(P.st.mentor>0?1.2:1)*(P.st.burn>0?.7:1)*(P.st.rehab>0?.6:1);
+const ST_N={mentor:"Mentor",pareja:"Pareja",deuda:"Deuda",cronica:"Molestia crónica",burn:"Agotamiento",fam:"Familia",rehab:"En rehabilitación",shady:"Patrocinio dudoso"};
+const ovrC=o=>o>=80?"#f5b800":o>=68?"#7f8ea8":"#e8731a";
+function rate(){return Math.min(99,rate0()+(P.x[dc]||0)*.05)}
+function rate0(){const{f,l,v,s}=P;return dc=="U"||dc=="S"?(f+l+v)/3+s*.06:dc=="B"?(f*1.2+v+l*.8)/3+s*.06:dc=="G"?(l*1.3+v*1.2+s*.5)/3:dc=="F"?(l+v*1.2+f*.6)/2.8:(f*1.3+l*1.2)/2.5}
+function bars(){
+ const chips=Object.keys(ST_N).filter(q=>P.st[q]).map(q=>`<span class="pill">${ST_N[q]}</span>`).join(" "),r=Math.round(rate()),k=KIT[nat]||["#444","#fff","🏳️"],T=H.reduce((a,h)=>({pj:a.pj+(h.k=="N"?0:h.s[0]),g:a.g+(h.k=="N"?0:h.s[1]),a:a.a+(h.k=="N"?0:h.s[2]),c:a.c+h.cups.length}),{pj:0,g:0,a:0,c:0});
+ return `<div class="card pc"><div class="ovr" style="background:${ovrC(r)}"><small>OVR</small>${r}</div><div><div><span class="pill">${fg(nat,18)} ${nat}</span> <span class="pill red">#${num} ${dc=="U"||dc=="B"||dc=="S"?POSN[pos]:DC[dc].n}</span></div><div class="pn">${crest(cur.n,28)} ${pname}</div><div class="note">${cur.n} · ${sex=="F"?"Mujer":"Hombre"} · ${age} años</div><div>${chips}</div></div><div class="pst"><div><b>${T.pj}</b>PJ</div><div><b>${T.g}</b>GLS</div><div><b>${T.a}</b>AST</div></div><div class="tro">${"🏆".repeat(Math.min(T.c,12))}</div><div class="stats">${[["f","Físico"],["l","Lanz."],["v","Visión"],["s","Espíritu"],["fa","Fama"],["e","Energía"]].map(k=>`<div class="st">${k[1]} · ${Math.round(P[k[0]])}<div class="bar"><i style="width:${Math.min(100,P[k[0]])}%"></i></div></div>`).join("")}</div></div>`}
+function tline(){
+ const rows=H.filter(h=>h.k!="N").map(h=>`<div class="row" style="--c:hsl(${hs(h.club)%360} 45% 20%)"><span class="ag" style="background:${ovrC(h.ovr)}">${h.age}</span><span class="cl">${crest(h.club,20)} ${h.club}${h.cups.length?" 🏆":""}</span><span class="ov" style="background:${ovrC(h.ovr)}">${h.ovr}</span><span>${h.s[0]}</span><span>${h.s[1]}</span><span>${h.s[2]}</span></div>`).join("");
+ const N=H.filter(h=>h.k=="N"),n=N.reduce((a,h)=>[a[0]+h.s[0],a[1]+h.s[1],a[2]+h.s[2]],[0,0,0]),kk=KIT[nat]||["","","🏳️"];
+ return `<div class="tl"><div class="th"><span>EDAD</span><span>EQUIPO</span><span>OVR</span><span>PJ</span><span>G</span><span>A</span></div>${rows}${N.length?`<div class="row nat"><span class="ag" style="background:none">${fg(nat,22)}</span><span class="cl">Selección ${nat}</span><span class="ov"></span><span>${n[0]}</span><span>${n[1]}</span><span>${n[2]}</span></div>`:""}</div>`}
+const optN=Object.keys(D).filter(k=>k!="WLD").sort((a,b)=>D[a].n.localeCompare(D[b].n,"es"));
+function intro(){inGame=false;
+ $("app").innerHTML=`<div class="card"><h2>Definí tu identidad</h2><div class="idg"><div id="jv" class="jv"></div><div class="idf">
+<label>Apellido<input id="pn" maxlength="16" value="N33N0"></label>
+<label>Número<input id="num" type="number" min="0" max="99" value="79"></label>
+<label>Brazo con el que lanzás<select id="arm"><option value="derecho">Derecho</option><option value="izquierdo">Izquierdo</option></select></label>
+<label>Sexo<select id="sex"><option value="M">Hombre</option><option value="F">Mujer</option></select></label>
+<label>Posición en cancha<select id="pos"><option value="H">Handler</option><option value="C">Cutter</option><option value="M">Híbrido</option></select></label>
+<label>Nacionalidad<select id="nat">${optN.map(k=>`<option value="${k}"${k=="COL"?" selected":""}>${D[k].n}</option>`).join("")}</select></label></div></div>
+<p class="note">Empezás a los 16 años. Si tu apellido es largo, la camiseta lo ajusta sola. Tu nacionalidad define el país donde arrancás; después elegís división y camino.</p><button class="go" onclick="start()">Confirmar identidad</button>${extras()}</div>`;
+ ["pn","num"].forEach(i=>$(i).oninput=jv);$("nat").onchange=jv;jv()}
+function jv(){const c=$("nat").value;$("jv").innerHTML=`<div style="text-align:center">${jersey(c,$("pn").value||"JUGADOR",$("num").value||0,200)}<div class="note">${fg(c,24)} ${D[c].n}</div></div>`}
+function startClub(){const pool=CL.filter(c=>c.c==nat&&c.d==dv);if(!pool.length)return{n:"Parche local de "+D[nat].n,c:nat,d:dv,t:1,min:0,k:"U"};const sp=pool.slice(-3);return sp[num%sp.length]}
+function natSel(){const i=BN.indexOf(nat);return{n:"Selección de "+D[nat].n,c:nat,d:"B",t:Math.max(1,Math.min(5,D[nat].b+(i>=0&&i<3?1:0))),min:0,k:"B"}}
+function start(){
+ pname=($("pn").value||"JUGADOR").toUpperCase().slice(0,16);nat=$("nat").value;arm=$("arm").value;sex=$("sex").value;num=Math.max(0,Math.min(99,parseInt($("num").value)||0));dc="U";dv="M";
+ P={f:42,l:42,v:42,s:45,fa:5,e:100,x:{},dg:0,path:"C",pot:Math.round(50+(R()+R()+R())*15),st:{}};if(arm=="izquierdo"){P.l+=5;P.v+=2}else{P.f+=3;P.l+=2}pos=$("pos").value;if(pos=="H"){P.v+=4;P.l+=3}else if(pos=="C"){P.f+=5;P.l+=1}else{P.f+=2;P.v+=2;P.l+=2}
+ H=[];age=16;usedS=[];inGame=false;
+ $("app").innerHTML=`<div class="card"><div class="tag">Un sábado en el parque · ${age} años</div><div class="idg"><div class="jv">${jersey(nat,pname,num,130)}</div><div><p class="txt">En un parque de ${D[nat].n}, un grupo se junta a jugar ultimate y te invitan a completar el equipo. Nadie te conoce y nadie te pide nada: es solo un partido.</p></div></div>
+ <button onclick="park(0)">Jugar a todo ritmo<small>+Físico, +Fama, −Energía</small></button><button onclick="park(1)">Jugar tranquilo y charlar<small>+Espíritu, +Energía</small></button><button onclick="park(2)">Mirar primero y aprender las reglas<small>+Visión, +Lanzamiento</small></button></div>`}
+function park(i){
+ const fx=[{f:4,fa:3,e:-8},{s:6,e:6},{v:5,l:3}][i];for(const q in fx)P[q]=Math.max(0,Math.min(100,P[q]+fx[q]));
+ const rs=["Corriste tanto que te pidieron la revancha.","Te invitaron a tomar algo y a volver el sábado que viene.","Un jugador veterano te explicó el Espíritu de Juego y cómo se pone el disco en juego."][i];
+ $("app").innerHTML=`<div class="card"><p class="txt">${rs}</p><p class="txt">Te preguntan si querés seguir jugando. Elegí tu división:</p>
+ <button onclick="pickDiv('M')">Mixta<small>Mujeres y hombres juntos</small></button><button onclick="pickDiv('${sex=="M"?"O":"W"}')">${sex=="M"?"Open":"Femenina"}<small>${sex=="M"?"Equipos de hombres":"Equipos de mujeres"}</small></button></div>`}
+function pickDiv(d){dv=d;
+ $("app").innerHTML=`<div class="card"><p class="txt">Ahora elegí cómo querés empezar a jugar (${DV[dv]}):</p>
+ <button onclick="pickPath('C')">Competitivo<small>Entrar a un club que juega torneos oficiales</small></button>
+ <button onclick="pickPath('F')">Formacional<small>Escuela o semillero: aprendés más rápido hasta los 18, con poca visibilidad</small></button>
+ <button onclick="pickPath('R')">Recreativo<small>Parche con amigos: más espíritu y energía, pero crecés más despacio</small></button></div>`}
+function pickPath(k){P.path=k;
+ if(k=="C"){const pool=CL.filter(c=>c.c==nat&&c.d==dv),opts=pool.length?pick(pool.slice(-5),3):[{n:"Club local de "+D[nat].n,c:nat,d:dv,t:1,min:0,k:"U"}];window.__o=opts;
+  $("app").innerHTML=`<div class="card"><p class="txt">Estos clubes te abren la puerta:</p><div class="og">${opts.map((c,i)=>`<button class="oc" onclick="pickClub(${i})"><small>Probar con</small>${crest(c.n,52)}<b>${c.n}</b><small>${fg(c.c)} ${D[c.c].n}${pool.length?"":" · genérico"}</small></button>`).join("")}</div></div>`;return}
+ begin({n:(k=="F"?"Semillero de ":"Parche recreativo de ")+D[nat].n,c:nat,d:dv,t:1,min:0,k:"U"})}
+function pickClub(i){begin(window.__o[i])}
+function begin(c){cur=c;if(P.path=="R"){P.s+=5}inGame=true;
+ $("app").innerHTML=bars()+`<div class="card"><div class="tag">Temporada 1 · ${age} años</div><p class="txt">Tu camino empieza en ${cur.n} (${D[nat].n}, ${DV[dv]}).${/^(Semillero|Parche|Club local)/.test(cur.n)?" Es un equipo genérico: no hay un club verificado para esta opción.":""}</p><button class="go" onclick="train()">Empezar</button></div>`}
+function callup(){
+ const y=2027+age-16,b=D[nat].b,evs=NEV.filter(e=>e.ok(y,age)&&(e.dc=="B"?dc=="B":dc=="U"));
+ if(!evs.length)return offers();
+ const e=evs[0],jun=e.n.indexOf("Juvenil")>=0,adj=jun?-3:e.n.indexOf("Sub-24")>=0?0:e.n.indexOf("Playa")>=0?-2:4,need=46+b*6+adj;
+ const generic=/^(Semillero|Parche|Club local)/.test(cur.n),comp=dc=="B"||(cur.t>=2&&P.path!="R"&&!generic);
+ if(!comp&&!(jun&&P.path!="R"))return offers();
+ const sc=rate()+P.fa*.05+((cur.t||1)-1)*1.5;
+ if(sc<need-3)return offers();
+ const p=Math.max(0,Math.min(.8,(sc-need)/8+.15))*(adj>=4?.7:1);
+ if(R()>p){if(R()>.4||age-(P.lastPre||-9)<=3)return offers();P.lastPre=age;$("app").innerHTML=bars()+`<div class="card"><div class="tag">Preselección · ${y}</div><p class="txt">Fuiste a la preselección de ${D[nat].n} para el ${e.n}, pero no quedaste en la lista final: tu nivel (${Math.round(sc)}) todavía no alcanza el que pide el equipo (${need}).</p><button class="go" onclick="offers()">Ver ofertas →</button></div>`;return}
+ $("app").innerHTML=bars()+`<div class="card"><div class="tag">Convocatoria · ${y}</div><p class="txt">Por tu nivel (OVR ${Math.round(rate())}) y tu temporada en ${cur.n}, te convocan a la Selección de ${D[nat].n} para el ${e.n}. Es un torneo corto, pero cansa.</p><button class="go" onclick="natl(${NEV.indexOf(e)})">Aceptar convocatoria</button><button onclick="offers()">Declinar</button></div>`}
+function natl(i){
+ const e=NEV[i],r=rate(),T=Math.max(1,Math.min(5,D[nat].b)),gp=rd(5,9);
+ const s=[gp,Math.round(gp*(r/100)*rd(2,4)*(R()+.5)),Math.round(gp*((P.l+P.v)/200)*rd(2,4)*(R()+.5)),Math.round(gp*(P.f/100)*rd(1,2)*(R()+.3))];
+ s[1]=Math.round(s[1]*PF[pos][0]);s[2]=Math.round(s[2]*PF[pos][1]);s[3]=Math.round(s[3]*PF[pos][2]);
+ const p=Math.min(.5,Math.max(.01,[0,.02,.05,.1,.18,.3][T]+(r-(46+T*6))/300)),win=R()<p,cups=win?["Campeón · "+e.n]:[];
+ H.push({age,dc:e.dc,club:"Selección de "+D[nat].n,c:nat,k:"N",s,cups,ovr:Math.round(r)});
+ P.fa=Math.min(100,P.fa+(win?14:4));P.e=Math.max(10,P.e-10);P.x[e.dc]=Math.min(100,(P.x[e.dc]||0)+3);
+ $("app").innerHTML=bars()+`<div class="card"><div class="tag">${e.n} · Selección de ${D[nat].n}</div><p class="txt">${s[0]} partidos: ${s[1]} goles, ${s[2]} asistencias, ${s[3]} bloqueos.${win?` <b class="cup">🏆 ${e.n}</b>`:" No alcanzó para el título."}</p><button class="go" onclick="offers()">Ver ofertas →</button></div>`}
+// Disc golf por niveles: 0=local/regional, 1=profesional regional, 2=circuito profesional (DGPT) y Majors
+const DG0=[["Torneo Par 2 MDE",1],["Liga DG GDL (Guadalajara)",1],["V Abierto de Chipiona",1],["Abierto Juega Colombia de Disc Golf",2],["Paraguay Open Doubles Championship",2],["Siam Open (PDGA Asia Tour)",2]];
+const DG1=[["Campeonato Latinoamericano de Disc Golf (PDGA)",3],["Abierto Juega Colombia de Disc Golf",2],["Siam Open (PDGA Asia Tour)",2],["Mundial por Equipos de Disc Golf (WFDF)",4],["Paraguay Open Doubles Championship",2]];
+function dgPool(){let b=[DG0,DG1,DGE][P.dg||0].slice();
+ if(P.dg==2){b.push(["DGPT Doubles Championship",4]);if(sex=="F")b.push(["PDGA Women’s Global Event",4])}
+ if(age>=40)b.push(["PDGA Masters Disc Golf World Championships",5]);
+ return pick(b,P.dg==0?4:6)}
+const dgAdv=()=>dc=="G"&&age>=40?6+Math.min(8,Math.floor((age-40)/3)):0;
+const dgDiv=()=>dc=="G"&&age>=40?" · "+(sex=="F"?"FP":"MP")+(age<50?40:age<55?50:age<60?55:age<65?60:age<70?65:age<75?70:75):"";
+// Situaciones del deporte (escenarios ficticios). d = disciplinas donde pueden pasar.
+const SIT=[
+{d:"UBS",t:"Disco discutido",x:"Final de partido, 14-14. Creés que tocaste el disco, pero nadie vio nada.",o:[["Admitir el toque",{s:12,fa:2},"Perdés el punto. Todos quieren jugar con vos."],["Discutir hasta ganar",{s:-10,fa:3},"Ganás, pero el rival ya no te pasa el disco con ganas."],["Proponer repetir el punto",{s:5,v:3},"Se repite y el partido sigue parejo."]]},
+{d:"UBS",t:"Tormenta en el torneo",x:"Se viene un temporal en pleno campeonato y el comité evalúa qué hacer.",o:[["Seguir jugando bajo la lluvia",{f:3,fa:4,e:-15},"Barro, resbalones y un partido que se recuerda."],["Pedir una pausa y reorganizar",{v:4,e:4},"Ahorrás energía y leés mejor el juego."]]},
+{d:"UBS",t:"Club o selección",x:"El mismo fin de semana juegan tu club y un entrenamiento de selección.",o:[["Quedarte con el club",{s:4,v:3},"Cumplís con tu equipo."],["Ir a la selección",{fa:5,e:-12},"Te ven los entrenadores nacionales."]]},
+{d:"UBS",t:"Transmisión en vivo",x:"Tu partido se transmite en vivo por primera vez.",o:[["Jugar como siempre",{v:3,s:2},"Nervios controlados."],["Buscar la jugada de video",{fa:8,s:-3},"Salió un layout para el resumen."]]},
+{d:"UBS",t:"Clínica de entrenamiento",x:"Una entrenadora invitada da una clínica de fin de semana.",o:[["Trabajar el lanzamiento",{l:8,e:-6},"Hammer, flick y backhand más afinados."],["Trabajar la lectura del juego",{v:8,e:-6},"Ves la cancha con otros ojos."],["Trabajar la preparación física",{f:8,e:-8},"Mejores piernas para el último punto."]]},
+{d:"UBSG",t:"Oferta de patrocinio",x:"Una marca de discos te ofrece apoyo si usás su logo.",o:[["Aceptar",{fa:8,s:-3},"Más visibilidad y más compromisos."],["Rechazar",{s:5},"Seguís sin ataduras."]]},
+{d:"UBSGFT",t:"Lesión leve",x:"Una molestia aparece justo antes de un torneo importante.",o:[["Descansar y hacer rehabilitación",{e:12,v:4,f:-2},"Te perdés el torneo, pero cuidás la carrera."],["Jugar igual",{fa:4,f:-8,e:-18},"Terminás el torneo con dolor."]]},
+{d:"G",t:"Viento en el hoyo 14",x:"Viento cruzado fuerte y un hoyo largo sobre agua.",o:[["Tirar agresivo, línea alta",{l:4,fa:4,e:-6},"Casi se va al agua, pero cae en el fairway."],["Jugar seguro y buscar el par",{v:6,e:-2},"Un par aburrido que vale oro."]]},
+{d:"G",t:"Gira de torneos",x:"Hay torneos seguidos en distintos países y viajar cuesta energía.",o:[["Viajar y jugar todo",{fa:6,l:3,e:-16},"Mucho cansancio y mucha experiencia."],["Elegir solo dos torneos",{e:10,v:3},"Llegás fresco a lo importante."]]},
+{d:"G",t:"Mentoría en la comunidad",x:"Chicos de la comunidad te piden que les enseñes a lanzar.",o:[["Dedicarles tiempo",{s:8,v:3,fa:3},"Tu nombre empieza a sonar en la comunidad."],["Seguir con tu entrenamiento",{l:4},"Entrenás tus tiros."]]},
+{d:"FT",t:"Exhibición",x:"Te invitan a una exhibición en un festival.",o:[["Mostrar tu mejor rutina",{fa:8,l:3,e:-8},"El público se queda con tu nombre."],["Practicar en privado",{l:6,v:3},"Afinás los detalles."]]},
+{d:"UBSGFT",t:"Un cruce en el torneo",x:"En la fiesta de cierre conocés a alguien que también juega y la charla no termina.",o:[["Invitarle un café al día siguiente",{s:3,e:-4,fa:1},"Empieza algo lindo, y los entrenamientos ahora tienen compañía."],["Quedarte con el grupo",{s:4},"Seguís enfocado en el equipo."],["Dejar que pase",{v:2,e:2},"A veces el momento no es el indicado."]]},
+{d:"UBSGFT",t:"Tu pareja pide equilibrio",x:"Tu pareja siente que el disco ocupa todos tus fines de semana.",o:[["Armar un plan con tiempo para ambos",{s:5,e:-5,v:2},"Menos entrenos, más cabeza tranquila."],["Priorizar tu carrera",{f:2,fa:3,s:-5,e:2},"Ganás horas de cancha, pero la charla queda pendiente."],["Hacer una pausa de un año",{e:20,f:-3,fa:-4},"Descansás y volvés con otra mirada."]]},
+{d:"UBSGFT",t:"Fiesta después del torneo",x:"El equipo rival organiza una fiesta que dura hasta el amanecer.",o:[["Ir un rato y cuidarte",{s:3,e:-4},"Conocés gente y llegás entero a la mañana."],["Quedarte hasta el amanecer",{e:-22,f:-3,fa:1},"Gran noche, pésimo partido al día siguiente."],["Volver temprano al hotel",{e:8,v:2},"Dormís como un campeón."]]},
+{d:"UBSGFT",t:"Te ofrecen algo para rendir más",x:"Alguien te ofrece una sustancia prohibida para recuperarte rápido entre partidos.",o:[["Decir que no y avisar al comité",{s:8,fa:2},"Tu palabra pesa más que cualquier atajo."],["Probar una vez",{e:-25,f:-8,s:-8},"Rendís mal, te sentís peor y te queda la culpa."],["Alejarte del grupo",{s:3},"Evitás el problema, pero queda una duda."]]},
+{d:"UBSGFT",t:"Tercer tiempo",x:"Después del partido, el grupo se queda brindando.",o:[["Brindar con moderación",{s:3,e:-3},"Charlás, reís y volvés tranquilo."],["Pasarte de copas",{e:-12,v:-3,s:-2},"Mañana vas a pagar la cuenta."],["Tomar agua y escuchar",{s:5,e:2},"Aprendés más de lo que pensabas."]]},
+{d:"UBSGFT",t:"Plata para viajar",x:"El torneo es lejos y el pasaje cuesta más de lo que tenés.",o:[["Hacer una rifa del club",{s:5,fa:2,e:-6},"Toda la comunidad se suma."],["Pedir un préstamo",{fa:5,e:-8,s:-1},"Viajás, pero con una deuda."],["Quedarte en casa",{e:6},"Esta vez el torneo se juega sin vos."]]},
+{d:"UBSGFT",t:"Un familiar te necesita",x:"Un familiar cercano necesita acompañamiento durante unas semanas.",o:[["Tomarte tiempo para acompañar",{s:6,e:-10,f:-2},"Perdés ritmo, ganás perspectiva."],["Combinar familia y entrenos",{e:-14,v:2},"Un malabar agotador."]]},
+{d:"UBSGFT",t:"Examen final o torneo",x:"El examen final cae el mismo fin de semana que el torneo.",o:[["Estudiar",{v:4,e:-4,fa:-2},"Aprobás y el equipo te espera."],["Ir al torneo",{fa:4,e:-8,v:-2},"Jugás bien, pero el examen queda para después."],["Pedir aplazar",{s:2},"La universidad te da una segunda oportunidad."]]},
+{d:"UBSGFT",t:"Tu video se hace viral",x:"Una jugada tuya se viraliza en redes.",o:[["Aprovechar y crear contenido",{fa:10,e:-6},"Se multiplican los seguidores."],["Ignorarlo y seguir",{s:3,e:4},"El ruido pasa y vos seguís en lo tuyo."]]},
+{d:"UBSGFT",t:"Semana de bajón",x:"Estás desanimado y no tenés ganas de entrenar.",o:[["Hablar con alguien de confianza",{s:5,e:8},"Contarlo alivia más de lo que esperabas."],["Aislarte y entrenar de más",{e:-15,f:-2},"Te sentís peor y te lesionás un poco."],["Tomarte unos días",{e:15},"Volvés con ganas."]]},
+{d:"UBSGFT",t:"Oferta de trabajo",x:"Te ofrecen un trabajo en otra ciudad con mejor sueldo.",o:[["Aceptar y buscar un club allá",{e:-6,v:3,fa:2},"Nueva ciudad, nuevo club, nuevos amigos."],["Rechazar",{s:3},"Te quedás en tu comunidad."]]},
+{d:"UBS",t:"Mala racha",x:"El equipo lleva cinco derrotas seguidas y el vestuario está tenso.",o:[["Hablar con el equipo",{s:6,fa:2},"Se aclara el aire y se gana confianza."],["Culpar a la defensa",{s:-8},"Se rompe algo que cuesta recomponer."]]},
+{d:"UBSGFT",t:"Rival convertido en amigo",x:"Un rival con quien discutiste se acerca a pedirte disculpas.",o:[["Aceptar y compartir un entrenamiento",{s:6,l:2},"Una amistad nueva."],["Seguir distante",{s:-2},"Todo sigue igual."]]},
+{d:"UBSGFT",a:[16,22],t:"Un entrenador se fija en vos",x:"Un entrenador con experiencia ve algo en tu juego y te ofrece guiarte.",o:[["Aceptar ser su pupilo",{v:3,l:3,e:-6},"Te exige mucho y te enseña más de lo que esperabas.",{mentor:4}],["Seguir por tu cuenta",{s:3},"Preferís tu propio camino."],["Pedirle que entrene a tu equipo",{s:4,fa:2},"El equipo mejora un poco y ganás respeto."]]},
+{d:"UBSGFT",a:[16,24],q:()=>!P.scouted,t:"Un ojeador evalúa tu potencial",x:"Un ojeador viene a verte en un torneo y te propone una prueba.",o:[["Mostrarte tal cual sos",{s:2},"El ojeador toma nota con calma.",{scout:1}],["Forzarte para impresionar",{fa:3,e:-14},"Das todo, aunque terminás agotado.",{scout:1}],["Rechazar la prueba",{e:4},"Preferís no exponerte todavía."]]},
+{d:"UBSGFT",a:[16,70],q:()=>P.injT&&!P.st.rehab,t:"Lesión grave",x:"Algo se rompió: el médico habla de varios meses de recuperación.",o:[["Cirugía y rehabilitación completa",{e:-18,f:-5,fa:-2},"Una temporada lenta, pero el cuerpo queda mejor.",{rehab:2}],["Tratamiento rápido para volver ya",{e:-6,f:-3},"Volvés pronto, aunque corrés el riesgo de arrastrar una molestia.",{cronica:1}],["Parar y estudiar táctica",{v:5,e:12,fa:-4},"Aprovechás para crecer con la cabeza.",{rehab:1}]]},
+{d:"UBSGFT",a:[19,40],q:()=>!P.st.pareja,t:"Una relación estable",x:"Conocés a alguien especial fuera del ambiente del disco.",o:[["Empezar una relación",{s:3,e:4},"Tenés con quién compartir triunfos y derrotas.",{pareja:1}],["Seguir solo y enfocado",{f:1,v:1},"Tu cabeza está en el disco."],["Probar una relación a distancia",{e:-4,s:2},"Mucho celular y poco sueño.",{pareja:1}]]},
+{d:"UBSGFT",a:[24,42],q:()=>P.st.pareja&&!P.st.fam,t:"Llega un bebé",x:"Tu familia crece y tu vida se reordena.",o:[["Reorganizar tus entrenamientos",{e:-8,s:6},"Menos horas, más sentido.",{fam:1}],["Pedir ayuda a la familia",{e:-4,s:3},"Con apoyo, todo es más llevadero.",{fam:1}],["Reducir los torneos por un año",{e:10,fa:-5,s:5},"Elegís estar presente.",{fam:1}]]},
+{d:"UBSGFT",a:[20,45],t:"Dinero fácil",x:"Un patrocinador desconocido te ofrece mucha plata a cambio de tu imagen.",o:[["Aceptar el contrato",{fa:8,s:-6,e:4},"La plata llega rápido, y también las preguntas.",{shady:1}],["Rechazarlo",{s:4},"Perdés una oportunidad, pero dormís tranquilo."],["Pedir un contrato transparente",{fa:3,v:2},"Negociás mejor de lo que pensabas."]]},
+{d:"UBSGFT",a:[20,55],q:()=>P.st.shady&&!P.st.shadyDone,t:"Escándalo con el patrocinador",x:"Sale a la luz que tu patrocinador tiene problemas legales.",o:[["Dar la cara y devolver el dinero",{fa:-4,s:7,e:-6},"Una mala semana y una buena lección.",{shadyDone:1}],["Guardar silencio y esperar",{fa:-10,s:-6},"El tema se instala en las redes.",{shadyDone:1}],["Explicarlo en un video",{fa:2,s:3},"Algunos te creen, otros no.",{shadyDone:1}]]},
+{d:"UBSGFT",a:[17,60],q:()=>P.e<38,t:"Semana de agotamiento",x:"Estás cansado y sin ganas de entrenar. El cuerpo avisa.",o:[["Descansar una temporada completa",{e:30,fa:-3,f:-1},"El cuerpo agradece y la cabeza también.",{burnClear:1}],["Seguir entrenando a pura fuerza",{e:-8,f:-2,v:-2},"Todo cuesta el doble.",{burn:3}],["Hablar con un psicólogo deportivo",{e:12,s:4,v:2},"Entendés qué te pasa y cómo seguir."]]},
+{d:"UBSGFT",a:[30,60],t:"Capitán o entrenador",x:"El equipo te mira como referente.",o:[["Asumir la capitanía",{s:6,fa:3,e:-6},"El equipo te sigue."],["Empezar a entrenar a los juveniles",{s:7,v:3,e:-4},"Tu experiencia se multiplica.",{mentor:2}],["Seguir enfocado en jugar",{f:1},"Tu cuerpo todavía responde."]]},
+{d:"UBSGFT",a:[18,34],t:"Una puerta en otro país",x:"Te ofrecen probar suerte en un club de otro país.",o:[["Mudarte a probar suerte",{v:3,fa:4,e:-10,s:-1},"Todo es nuevo: el idioma, la comida, el clima."],["Quedarte con tu gente",{s:4,e:4},"Tenés apoyo en cada paso."]]}
+];
+const SAGE={"Examen final o torneo":[16,27],"Oferta de trabajo":[21,45],"Tercer tiempo":[18,60],"Fiesta después del torneo":[17,45],"Tu pareja pide equilibrio":[19,45],"Rival convertido en amigo":[16,60],"Un cruce en el torneo":[18,50],"Te ofrecen algo para rendir más":[18,50],"Un familiar te necesita":[20,65],"Clínica de entrenamiento":[16,40],"Club o selección":[16,32],"Oferta de patrocinio":[18,45]};
+const REQ={"Tu pareja pide equilibrio":()=>P.st.pareja,"Un cruce en el torneo":()=>!P.st.pareja};
+const OF={"Un cruce en el torneo|0":{pareja:1},"Plata para viajar|1":{deuda:3},"Te ofrecen algo para rendir más|1":{burn:2},"Lesión leve|1":{cronica:1},"Oferta de patrocinio|0":{shady:1},"Fiesta después del torneo|1":{burn:1}};
+function sit(){
+ const ok=i=>{const e=SIT[i],w=e.a||SAGE[e.t]||[16,70],q=e.q||REQ[e.t];return e.d.indexOf(dc)>=0&&age>=w[0]&&age<=w[1]&&(!q||q())};
+ const fi=t=>SIT.findIndex(e=>e.t==t);let i=-1;
+ if(P.injT&&!P.st.rehab&&R()<.6&&ok(fi("Lesión grave")))i=fi("Lesión grave");
+ else if(P.st.shady&&!P.st.shadyDone&&R()<.35&&ok(fi("Escándalo con el patrocinador")))i=fi("Escándalo con el patrocinador");
+ else if(P.e<38&&R()<.7&&ok(fi("Semana de agotamiento")))i=fi("Semana de agotamiento");
+ if(i<0){const all=SIT.map((e,k)=>k).filter(ok);let pool=all.filter(k=>usedS.indexOf(k)<0);if(!pool.length){usedS=[];pool=all}
+  if(R()>.8||!pool.length)return callup();i=pool[Math.floor(R()*pool.length)]}
+ usedS.push(i);const e=SIT[i],op=e.o.map((o,j)=>[o,j]).sort(()=>R()-.5);
+ $("app").innerHTML=bars()+`<div class="card"><div class="tag">Situación · ${e.t}</div><p class="txt">${e.x}</p>${op.map(([o,j])=>`<button onclick="sitPick(${i},${j})">${o[0]}</button>`).join("")}</div>`}
+function sitPick(a,b){
+ const e=SIT[a],o=e.o[b],fl=Object.assign({},OF[e.t+"|"+b],o[3]||{}),roll=R(),mode=roll<.17?-1:roll>.83?1:0;let tx=mode<0?" Salió peor de lo esperado.":mode>0?" Salió mejor de lo esperado.":"";
+ for(const k in o[1]){let v=o[1][k]*(.6+R()*.8);if(mode<0)v=v>0?-v*.5:v*1.3;else if(mode>0)v=v>0?v*1.5:v*.5;P[k]=Math.max(0,Math.min(100,P[k]+v))}
+ for(const k in fl){if(k=="scout"){P.scouted=true;tx+=" "+(P.pot>=82?"Dicen que tenés un techo muy alto.":P.pot>=70?"Dicen que podés llegar lejos con constancia.":"Dicen que tu nivel dependerá de tu constancia y de tu cabeza.")}else if(k=="burnClear")P.st.burn=0;else if(k=="cronica"){if(R()<.5)P.st.cronica=1}else P.st[k]=fl[k]}
+ $("app").innerHTML=bars()+`<div class="card"><p class="txt">${o[2]}${tx}</p><button class="go" onclick="callup()">Continuar →</button></div>`}
+function where(){return cur.k=="C"?"Circuito mundial":cur.n+" · "+D[cur.c].n}
+const GN={f:"Físico",l:"Lanzamiento",v:"Visión",s:"Espíritu de juego",x:"Vida",fa:"Fama"};
+const TR=[["f","Sprints en cuesta",{f:10,e:-12}],["f","Gimnasio de fuerza",{f:9,e:-9,l:1}],["f","Yoga y movilidad",{f:4,e:8,v:2}],["f","Natación y descanso activo",{f:3,e:12}],["f","Pliometría y saltos",{f:8,e:-10,v:1}],
+["l","Mil flicks contra la pared",{l:10,e:-8}],["l","Backhands con viento",{l:9,e:-7,f:1}],["l","Hammers y scoobers",{l:8,fa:2,e:-8}],["l","Lanzar con la mano mala",{l:6,v:3,e:-6}],["l","Ver video de lanzadores",{l:5,v:4,e:-3}],
+["v","Analizar video de partidos",{v:9,e:-4}],["v","Jugar de handler en el parche",{v:8,l:2,e:-8}],["v","Estudiar zonas y marcas",{v:8,s:1,e:-5}],["v","Clínica de táctica",{v:10,e:-10,fa:1}],
+["s","Mediar una disputa",{s:10,fa:1}],["s","Voluntariado en un torneo",{s:8,fa:3,e:-8}],["s","Mentoría a juveniles",{s:9,v:3,e:-6}],["s","Charla de reglas WFDF",{s:7,v:4}],
+["x","Tiempo con la familia",{e:15,s:4}],["x","Salir con amigos",{e:8,s:2,f:-1}],["x","Trabajo de medio tiempo",{fa:-1,e:-6,s:2}],["l","Doble turno de lanzamiento",{l:14,e:-22}],["f","Sprints hasta el límite",{f:14,e:-24}],["x","Descanso total",{e:28}],["v","Viaje a un torneo en el exterior",{fa:5,v:4,e:-14}]];
+function train(){
+ TRS=pick(TR,4);save();
+ $("app").innerHTML=bars()+`<div class="card"><span class="age">${age} años</span><div class="tag">${DC[dc].n} · ${where()}${dc=="U"||dc=="B"||dc=="S"?" · "+DV[dv]:""}</div><p class="txt">¿Qué hacés esta temporada?</p>${TRS.map((t,i)=>`<button onclick="play(${i})">${t[1]}<small>${GN[t[0]]} · ${Object.keys(t[2]).filter(q=>q!="e").map(q=>(t[2][q]>0?"+":"")+t[2][q]+" "+(GN[q]||q)).join(", ")}</small></button>`).join("")}</div>`}
+function play(i){
+ const t=TRS[i],ef=P.e<35?.6:P.e<65?.85:1,gq=q=>Math.max(.06,Math.min(1,(P.pot-P[q])/(P.pot-34)));
+ for(const q in t[2]){let d=t[2][q];if(d>0&&"flvs".indexOf(q)>=0)d=Math.round(d*gmul()*ef*gq(q)*10)/10;P[q]=Math.max(0,Math.min(100,P[q]+d))}
+ if(age<=25)for(const q of["f","l","v"])P[q]=Math.min(100,P[q]+rd(0,2)*gq(q));
+ const inj=R()<Math.min(.4,(.07+Math.max(0,age-30)*.02)*(dc=="G"?.4:dc=="F"?.5:1)*(P.e<35?1.8:1)*(P.st.cronica?1.5:1)*(P.st.rehab>0?.5:1));
+ P.injT=inj;if(inj){P.f=Math.max(0,P.f-rd(3,8));P.e=Math.max(10,P.e-30)}
+ P.x[dc]=Math.min(100,(P.x[dc]||0)+6);const ag=AGE[dc];if(age>ag[0]){P.f=Math.max(0,P.f-rd(0,ag[1]+1));for(const x of["l","v"])P[x]=Math.max(0,P[x]-rd(0,Math.ceil(ag[1]/2)))}
+ for(const k of["mentor","burn","deuda","rehab"])if(P.st[k]>0)P.st[k]--;if(P.st.deuda>0)P.e=Math.max(10,P.e-6);if(P.st.fam)P.e=Math.max(10,P.e-5);if(P.st.pareja)P.s=Math.min(100,P.s+1);
+ const r=rate();let s,cups=[],up="";if(dc=="G"){if(P.dg<1&&r>=40){P.dg=1;up="Subís al circuito profesional regional."}else if(P.dg==1&&r>=58){P.dg=2;up="Ascendés al circuito profesional (DGPT)."}}
+ if(dc=="U"||dc=="B"||dc=="S"){
+  const gp=Math.max(2,Math.round(12*(inj?.5:1)*(P.e/100+.4)/1.4*(.8+R()*.4)));
+  s=[gp,Math.round(gp*(r/100)*rd(2,4)*(R()+.5)),Math.round(gp*((P.l+P.v)/200)*rd(2,4)*(R()+.5)),Math.round(gp*(P.f/100)*rd(1,2)*(R()+.3))];
+  {const f=PF[pos];s[1]=Math.round(s[1]*f[0]);s[2]=Math.round(s[2]*f[1]);s[3]=Math.round(s[3]*f[2])}
+  const pr=Math.min(.7,Math.max(.02,[0,.03,.06,.1,.16,.24][cur.t]+(r-50)/250));
+  if(dc=="U"){if(R()<pr)cups.push("Campeón nacional · "+D[cur.c].n);if((2027+age-16)%4==2&&cur.t>=4&&R()<pr*.5)cups.push("Campeón mundial de clubes (WUCC)")}
+  if(dc=="U"&&AMER.indexOf(cur.c)>=0&&(2027+age-16)%2==1&&cur.t>=3&&R()<pr*.5)cups.push("Campeón panamericano de clubes (PAUC)");
+  if(dc=="S"&&(2027+age-16)%4==2&&R()<pr)cups.push("Campeón mundial de Masters (WMUCC) · "+LVN[cur.lv]);
+  if(dc=="U"&&EUR.indexOf(cur.c)>=0&&cur.t>=3&&R()<pr*.45)cups.push("Campeón europeo de clubes (EUCF)");
+ }else{
+  const L=dc=="G"?dgPool():dc=="F"?FRE:GUT;let a=0,b=0,c=0;
+  L.forEach(([nm,t])=>{const F=(P.dg==2?60:P.dg==1?38:30)+6*t,rr=r+dgAdv()-(inj?8:0),pt=Math.max(.03,Math.min(.9,(rr-F+18)/60)),pw=Math.max(0,Math.min(.2,(rr-F)/150));if(R()<pt)a++;if(R()<pw){b++;if(t==5)c++;cups.push(nm+(t==5?" (Major)":"")+dgDiv())}});
+  s=[L.length,a,b,c];
+ }
+ H.push({age,dc,club:cur.n,c:cur.c,k:cur.k,s,cups,ovr:Math.round(r)});
+ P.fa=Math.min(100,P.fa+cups.length*12+3+s[1]/6);P.e=Math.max(5,Math.min(100,P.e+27-(dc=="U"||dc=="B"||dc=="S"?6+(cur.t||1)*2:5)));
+ const h=DC[dc].h,txt=h.map((x,i)=>s[i]+" "+x.toLowerCase()).join(" · ");
+ $("app").innerHTML=bars()+`<div class="card"><div class="tag">Temporada ${age} · ${cur.n}</div><p class="txt">${txt}.${cups.map(c=>` <b class="cup">🏆 ${c}</b>`).join("")}${inj?" Te lesionaste durante la temporada.":""}${up?" "+up:""}</p><button class="go" onclick="sit()">Continuar →</button></div>`}
+const SUB={G:"PDGA/DGPT, Majors y divisiones Masters: carrera hasta los 70",B:"Selección de tu país y mundial de playa",S:"Clubes de veteranos y mundial WMUCC",U:"Volver a clubes de ultimate",F:"FPA World Championships y WOC",T:"World Guts Club Championships y WOC"};
+function offers(){
+ age++;if(age>70||P.f<=0)return end();
+ const r=rate()+P.fa*.15,over=age>CAP[dc];let pool=[];
+ if(dc=="U")pool=CL.filter(c=>c.d==dv&&c!=cur&&c.min<=r);else if(dc=="S")pool=MAS.filter(c=>c.d==dv&&c.lv==mlv()&&c!=cur);
+ pool=over?[]:pick(pool,3);
+ const oth=Object.keys(DC).filter(x=>x!=dc&&(x!="S"||age>=35));
+ const card=(c,i)=>`<button class="oc" onclick="${i<0?"train()":"sw("+i+")"}"><small>${i<0?"Quedarte en":"Fichar por"}</small>${crest(c.n,52)}<b>${c.n}</b><small>${c.k=="C"?"Circuito mundial":fg(c.c)+" "+D[c.c].n}${i<0?"":" · "+"★".repeat(c.t)}</small></button>`;
+ const dvs=dc=="U"?[sex=="M"?"O":"W","M"].filter(d=>d!=dv):[];
+ $("app").innerHTML=bars()+`<div class="card"><span class="age">${age} años</span><div class="tag">Mercado de pases</div><p class="txt">Llegaron ofertas después de tu último tramo de carrera. Tu OVR es ${Math.round(rate())}. Podés aceptar una o quedarte en tu club.</p>
+ ${over?`<p class="note">Tu cuerpo ya no da para seguir en ${DC[dc].n}. Podés pasarte a otra disciplina o retirarte.</p>`:""}
+ <div class="og">${over?"":card(cur,-1)}${pool.map(c=>card(c,ALL.indexOf(c))).join("")}</div>
+ ${dvs.map(d=>`<button class="alt" onclick="sdv('${d}')">Pasarte a la división ${DV[d]}<small>${d=="M"?"Volver a jugar con equipos mixtos":sex=="M"?"Competir en Open":"Competir en Femenina"}</small></button>`).join("")}
+ ${oth.map(x=>`<button class="alt" onclick="sd('${x}')">Pasarte a ${DC[x].n}<small>${SUB[x]}</small></button>`).join("")}
+ ${age>=34||over?`<button onclick="end()">Retirarte</button>`:""}</div>`}
+function sdv(d){dv=d;P.path="C";const r=rate()+P.fa*.15;cur=pick(CL.filter(c=>c.d==d&&c.min<=r),1)[0]||startClub();train()}
+function sw(i){cur=ALL[i];P.path="C";train()}
+function sd(x){
+ dc=x;{const tr={G:(P.l+P.v)/12,B:P.f/12,F:P.l/12,T:(P.f+P.l)/20,S:8,U:0}[x]||0;P.x[x]=Math.max(P.x[x]||0,Math.round(tr));if(x=="G"){const q=rate();P.dg=q>=58?2:q>=40?1:0}}const r=rate()+P.fa*.15;
+ if(x=="U")cur=pick(CL.filter(c=>c.d==dv&&c.min<=r),1)[0]||startClub();
+ else if(x=="B")cur=natSel();else if(x=="S")cur=pick(MAS.filter(c=>c.d==dv&&c.lv==mlv()),1)[0]||pick(MAS.filter(c=>c.d==dv),1)[0];
+ else cur={n:x=="G"?"Disc golf · circuito PDGA":x=="F"?"Circuito de freestyle FPA / WFDF":"Circuito de guts WFDF",c:"WLD",t:4,k:"C"};
+ train()}
+function end0(){
+ const ds=[...new Set(H.map(h=>h.dc))],pal=H.flatMap(h=>h.cups.map(c=>`🏆 ${c} · ${h.club} · ${h.age} años`));
+ const total=H.reduce((a,h)=>a+h.cups.length,0);
+ const tabs=ds.map(d=>{const by={};H.filter(h=>h.dc==d).forEach(h=>{const b=by[h.club]=by[h.club]||{c:h.c,k:h.k,t:0,s:[0,0,0,0],cu:0};b.t++;h.s.forEach((v,i)=>b.s[i]+=v);b.cu+=h.cups.length});
+  const hd=DC[d].h;
+  return `<div class="card"><div class="tag">${DC[d].n} · estadísticas por equipo</div><div class="t"><table><tr><th>${d=="U"||d=="B"||d=="S"?"Equipo":"Circuito"}</th><th>Temp</th>${hd.map(x=>`<th>${x}</th>`).join("")}<th>🏆</th></tr>${Object.entries(by).map(([n,b])=>`<tr><td>${n}${b.k=="C"?"":`<br><span class="note">${D[b.c].n}</span>`}</td><td>${b.t}</td>${hd.map((x,i)=>`<td>${b.s[i]}</td>`).join("")}<td>${b.cu}</td></tr>`).join("")}</table></div></div>`}).join("");
+ $("app").innerHTML=`<div class="card"><div class="tag">Fin de carrera · ${H.length} temporadas</div><p class="txt">#${num} · ${D[nat].n} · brazo ${arm}. Disciplinas: ${ds.map(d=>DC[d].n).join(", ")} · <b class="cup">${total} 🏆</b></p></div>${tabs}
+ <div class="card"><div class="tag">Palmarés</div>${pal.length?pal.map(p=>`<p class="txt">${p}</p>`).join(""):'<p class="txt">Sin títulos esta vez.</p>'}<p class="note">Nombres de clubes, ligas y torneos reales; estadísticas y títulos son simulados, no datos oficiales.</p><button class="go" onclick="intro()">Nueva carrera</button></div>`}
+function save(){try{localStorage.setItem("save",JSON.stringify({P,H,cur,age,dv,dc,nat,arm,num,sex,pname,pos,usedS}))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem("save"));({P,H,cur,age,dv,dc,nat,arm,num,sex,pname,pos,usedS}=s);const f=ALL.find(c=>c.n==cur.n&&c.c==cur.c&&c.d==cur.d&&c.k==cur.k);if(f)cur=f;P.st=P.st||{};if(P.pot==null)P.pot=72;inGame=true;train()}catch(e){}}
+function extras(){let h="";try{const sv=localStorage.getItem("save");if(sv){const s=JSON.parse(sv);h+=`<button onclick="load()">Continuar la carrera de ${s.pname} (${s.age} años)</button>`}const l=JSON.parse(localStorage.getItem("hof")||"[]");if(l.length)h+=`<div class="tag" style="margin-top:14px">Mis carreras</div>`+l.map(x=>`<div class="note">${fg(x.c)} ${x.n} · ${x.s} temporadas · ${x.t} 🏆 · OVR máx. ${x.o}</div>`).join("")}catch(e){}return h}
+function copySum(b){const t=window.__sum;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.textContent="¡Copiado!"},()=>{const a=document.createElement("textarea");a.value=t;a.style.cssText="width:100%;height:160px";b.after(a);a.select()})}
+function end(){inGame=false;const TT=H.reduce((a,h)=>a+h.cups.length,0),PK=H.length?Math.max(...H.map(h=>h.ovr)):0;
+ try{localStorage.removeItem("save");const l=JSON.parse(localStorage.getItem("hof")||"[]");l.unshift({n:pname,c:nat,t:TT,o:PK,s:H.length});localStorage.setItem("hof",JSON.stringify(l.slice(0,8)))}catch(e){}
+ window.__sum=pname+" ("+D[nat].n+") · "+H.length+" temporadas · "+TT+" títulos · OVR máx. "+PK+"\n"+H.filter(h=>h.k!="N").map(h=>h.age+": "+h.club+" · "+h.ovr+" OVR · "+h.s[0]+" PJ "+h.s[1]+" G "+h.s[2]+" A"+(h.cups.length?" 🏆 "+h.cups.join(", "):"")).join("\n");
+ end0();const el=document.getElementById("app"),la=H.length?H[H.length-1].age:age;
+ el.insertAdjacentHTML("afterbegin",`<div class="card"><h2>Tu carrera llegó a su fin</h2><div class="idg"><div>${jersey(nat,pname,num,120)}</div><div><div class="pn">${pname}</div><div class="note">${fg(nat)} ${D[nat].n} · ${H.length} temporadas · último año a los ${la} años</div></div></div><button onclick="copySum(this)">Copiar resumen de la carrera</button></div>`);
+ el.insertAdjacentHTML("beforeend",`<div class="card"><div class="tag">Línea de carrera</div>${tline()}</div>`);
+ const sc=score();
+ el.insertAdjacentHTML("beforeend",`<div class="card"><div class="tag">Puntaje de carrera</div><p class="txt"><b style="font-size:30px">${sc.s}</b> puntos · OVR máx. ${sc.pk} · ${sc.t} títulos · ${sc.n} convocatorias</p><p class="note">Se registra el mejor puntaje de cada jugador por mes. El Equipo del Mes se arma con los mejores puntajes por posición (${POSN[pos]}).</p><button class="go" id="pubb" onclick="pub()">Publicar mi puntaje en el ranking</button><p class="note" id="pubm"></p>${window.DLL_RANK_URL?`<a href="${window.DLL_RANK_URL}" style="color:var(--tg)">Ver el Equipo del Mes</a>`:""}<div id="rkl"></div></div>`);rkLocal()}
+try{Object.assign(LOGOS,JSON.parse(localStorage.getItem("logos")||"{}"))}catch(e){}
+{const s=document.getElementById("lgc");[...new Set(ALL.map(c=>c.n))].sort((a,b)=>a.localeCompare(b)).forEach(n=>{const o=document.createElement("option");o.value=n;o.textContent=n;s.appendChild(o)})}
+document.getElementById("lgf").onchange=e=>{const f=e.target.files[0];if(!f)return;const fr=new FileReader();fr.onload=()=>{const im=new Image();im.onload=()=>{const c=document.createElement("canvas");c.width=c.height=64;const g=c.getContext("2d"),k=Math.min(64/im.width,64/im.height);g.drawImage(im,(64-im.width*k)/2,(64-im.height*k)/2,im.width*k,im.height*k);LOGOS[document.getElementById("lgc").value]=c.toDataURL("image/png");try{localStorage.setItem("logos",JSON.stringify(LOGOS))}catch(x){}document.getElementById("lgm").textContent="Logo guardado. Se verá en la próxima pantalla."};im.src=fr.result};fr.readAsDataURL(f)};
+function lgReset(){delete LOGOS[document.getElementById("lgc").value];try{localStorage.setItem("logos",JSON.stringify(LOGOS))}catch(x){}document.getElementById("lgm").textContent="Logo quitado."}
+
+// ---------- Puntaje y ranking mensual ----------
+function mon(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")}
+function score(){const pk=H.length?Math.max(...H.map(h=>h.ovr)):0,T=H.reduce((a,h)=>a+h.cups.length,0),N=H.filter(h=>h.k=="N").length;return{s:Math.min(2000,Math.round(pk*10+T*30+N*10+Math.min(H.length,30)*2)),pk,t:T,n:N}}
+const FBV="10.12.2";
+function loadFB(){if(window.firebase&&firebase.firestore)return Promise.resolve();return["app","auth","firestore"].map(x=>"https://www.gstatic.com/firebasejs/"+FBV+"/firebase-"+x+"-compat.js").reduce((p,s)=>p.then(()=>new Promise((ok,ko)=>{const e=document.createElement("script");e.src=s;e.onload=ok;e.onerror=()=>ko(new Error("No se pudo cargar "+s));document.head.appendChild(e)})),Promise.resolve())}
+function rkLocal(){const el=document.getElementById("rkl");if(!el)return;try{const l=JSON.parse(localStorage.getItem("rank")||"[]");el.innerHTML=l.length?`<div class="tag" style="margin-top:12px">Mis mejores puntajes (este navegador)</div>`+l.slice(0,5).map(x=>`<div class="note">${x.n} · ${POSN[x.pos]} · ${x.s} pts · ${x.m}</div>`).join(""):""}catch(e){}}
+async function pub(){
+ const sc=score(),m=mon(),pl={n:pname,nat:nat,pos:pos,sex:sex,dv:dv,s:sc.s,pk:sc.pk,t:sc.t,m:m},b=document.getElementById("pubb"),msg=document.getElementById("pubm");
+ b.disabled=true;
+ try{
+  if(window.DLL_FIREBASE){
+   await loadFB();
+   const app=firebase.apps.find(a=>a.name=="carrera")||firebase.initializeApp(window.DLL_FIREBASE,"carrera"),au=app.auth();
+   if(!au.currentUser)await au.signInAnonymously();
+   const ref=app.firestore().collection("carrera_scores").doc(au.currentUser.uid+"_"+m),sn=await ref.get();
+   if(sn.exists&&sn.data().s>=sc.s){msg.textContent="Tu mejor puntaje de "+m+" es "+sn.data().s+". Este no lo supera."}
+   else{await ref.set(Object.assign(pl,{ts:firebase.firestore.FieldValue.serverTimestamp()}));msg.textContent="¡Publicado! Tu puntaje del mes quedó registrado: "+sc.s+"."}
+  }else{
+   const l=JSON.parse(localStorage.getItem("rank")||"[]");l.push(pl);l.sort((a,c)=>c.s-a.s);localStorage.setItem("rank",JSON.stringify(l.slice(0,10)));
+   msg.textContent="Guardado en este navegador. El ranking online se activa cuando el juego se publica con Firebase."}
+ }catch(e){msg.textContent="No se pudo publicar: "+(e.message||e)}
+ b.disabled=false;rkLocal()}
+function setT(t){document.documentElement.setAttribute("data-theme",t);try{localStorage.setItem("th",t)}catch(e){}}
+function tgl(){setT(document.documentElement.getAttribute("data-theme")=="dark"?"light":"dark")}
+{let t="dark";try{t=localStorage.getItem("th")||"dark"}catch(e){}setT(t)}
+intro();
+</script></main></body></html>
