@@ -46,11 +46,12 @@ footer{margin-top:14px}
 <header><h1>Carrera <span>Disco Volador</span></h1><button class="tg" onclick="tgl()">◐ Tema</button></header><div class="stripe"></div><div id="app"></div>
 <footer><details><summary class="note">Escudos personalizados</summary><p class="note">Subí un logo (PNG, JPG, SVG o WebP) para un club o torneo. Se guarda solo en tu navegador. Usá únicamente imágenes que tengas permiso de usar.</p><select id="lgc"></select><input id="lgf" type="file" accept="image/*"><button onclick="lgReset()">Quitar el logo de este club</button><p class="note" id="lgm"></p></details><p class="note">Los nombres y referencias a clubes, ligas, federaciones y torneos se utilizan exclusivamente con fines identificativos dentro de la simulación. Esta plataforma no está afiliada, patrocinada ni avalada por las entidades mencionadas. Los escudos son ilustraciones genéricas generadas por el juego.</p></footer>
 <script>
-CONFIGURACIÓN PARA PUBLICAR EN TU SITIO (opcional)
+/* CONFIGURACIÓN PARA PUBLICAR EN TU SITIO (opcional)
    1) Descomentá y completá con la configuración web de tu proyecto de Firebase.
    2) Si dejás esto comentado, el juego guarda los puntajes solo en el navegador de cada jugador.
-window.DLL_FIREBASE={apiKey:"AIzaSyAQBnuBnWVaNEL-lfJzjufQpE3JOqYIAZQ",authDomain:"carreradv-5b3fb.firebaseapp.com",projectId:"carreradv-5b3fb",appId:"1:228889999545:web:3d807538334a159c1e0368"};
+window.DLL_FIREBASE={apiKey:"TU_API_KEY",authDomain:"TU_PROYECTO.firebaseapp.com",projectId:"TU_PROYECTO",appId:"TU_APP_ID"};
 window.DLL_RANK_URL="equipo-del-mes.html";
+*/
 </script>
 <script>
 // Clubes reales por país y división (O=Open, W=Femenina, M=Mixta). Fuentes: WUCC 2026, EUCF 2026, nacionales de clubes (USAU, CUC, UKU, Colombia), AOUC 2025, PAUC 2025.
@@ -201,18 +202,19 @@ function tline(){
 const optN=Object.keys(D).filter(k=>k!="WLD").sort((a,b)=>D[a].n.localeCompare(D[b].n,"es"));
 function intro(){inGame=false;
  $("app").innerHTML=`<div class="card"><h2>Definí tu identidad</h2><div class="idg"><div id="jv" class="jv"></div><div class="idf">
-<label>Apellido<input id="pn" maxlength="16" value="N33N0"></label>
-<label>Número<input id="num" type="number" min="0" max="99" value="79"></label>
+<label>Apellido<input id="pn" maxlength="16" placeholder="Tu apellido"></label>
+<label>Número<input id="num" type="number" min="0" max="99" value="10"></label>
 <label>Brazo con el que lanzás<select id="arm"><option value="derecho">Derecho</option><option value="izquierdo">Izquierdo</option></select></label>
 <label>Sexo<select id="sex"><option value="M">Hombre</option><option value="F">Mujer</option></select></label>
 <label>Posición en cancha<select id="pos"><option value="H">Handler</option><option value="C">Cutter</option><option value="M">Híbrido</option></select></label>
-<label>Nacionalidad<select id="nat">${optN.map(k=>`<option value="${k}"${k=="COL"?" selected":""}>${D[k].n}</option>`).join("")}</select></label></div></div>
+<label>Nacionalidad<select id="nat"><option value="">Elegí tu país</option>${optN.map(k=>`<option value="${k}">${D[k].n}</option>`).join("")}</select></label></div></div>
 <p class="note">Empezás a los 16 años. Si tu apellido es largo, la camiseta lo ajusta sola. Tu nacionalidad define el país donde arrancás; después elegís división y camino.</p><button class="go" onclick="start()">Confirmar identidad</button>${extras()}</div>`;
  ["pn","num"].forEach(i=>$(i).oninput=jv);$("nat").onchange=jv;jv()}
-function jv(){const c=$("nat").value;$("jv").innerHTML=`<div style="text-align:center">${jersey(c,$("pn").value||"JUGADOR",$("num").value||0,200)}<div class="note">${fg(c,24)} ${D[c].n}</div></div>`}
+function jv(){const c=$("nat").value;$("jv").innerHTML=`<div style="text-align:center">${jersey(c,$("pn").value||"JUGADOR",$("num").value||0,200)}<div class="note">${c?fg(c,24)+" "+D[c].n:"Elegí tu país"}</div></div>`}
 function startClub(){const pool=CL.filter(c=>c.c==nat&&c.d==dv);if(!pool.length)return{n:"Parche local de "+D[nat].n,c:nat,d:dv,t:1,min:0,k:"U"};const sp=pool.slice(-3);return sp[num%sp.length]}
 function natSel(){const i=BN.indexOf(nat);return{n:"Selección de "+D[nat].n,c:nat,d:"B",t:Math.max(1,Math.min(5,D[nat].b+(i>=0&&i<3?1:0))),min:0,k:"B"}}
 function start(){
+ if(!$("nat").value){$("nat").focus();$("nat").style.borderColor="var(--r)";return}
  pname=($("pn").value||"JUGADOR").toUpperCase().slice(0,16);nat=$("nat").value;arm=$("arm").value;sex=$("sex").value;num=Math.max(0,Math.min(99,parseInt($("num").value)||0));dc="U";dv="M";
  P={f:42,l:42,v:42,s:45,fa:5,e:100,x:{},dg:0,path:"C",pot:Math.round(50+(R()+R()+R())*15),st:{}};if(arm=="izquierdo"){P.l+=5;P.v+=2}else{P.f+=3;P.l+=2}pos=$("pos").value;if(pos=="H"){P.v+=4;P.l+=3}else if(pos=="C"){P.f+=5;P.l+=1}else{P.f+=2;P.v+=2;P.l+=2}
  H=[];age=16;usedS=[];inGame=false;
@@ -388,7 +390,7 @@ function end0(){
  <div class="card"><div class="tag">Palmarés</div>${pal.length?pal.map(p=>`<p class="txt">${p}</p>`).join(""):'<p class="txt">Sin títulos esta vez.</p>'}<p class="note">Nombres de clubes, ligas y torneos reales; estadísticas y títulos son simulados, no datos oficiales.</p><button class="go" onclick="intro()">Nueva carrera</button></div>`}
 function save(){try{localStorage.setItem("save",JSON.stringify({P,H,cur,age,dv,dc,nat,arm,num,sex,pname,pos,usedS}))}catch(e){}}
 function load(){try{const s=JSON.parse(localStorage.getItem("save"));({P,H,cur,age,dv,dc,nat,arm,num,sex,pname,pos,usedS}=s);const f=ALL.find(c=>c.n==cur.n&&c.c==cur.c&&c.d==cur.d&&c.k==cur.k);if(f)cur=f;P.st=P.st||{};if(P.pot==null)P.pot=72;inGame=true;train()}catch(e){}}
-function extras(){let h="";try{const sv=localStorage.getItem("save");if(sv){const s=JSON.parse(sv);h+=`<button onclick="load()">Continuar la carrera de ${s.pname} (${s.age} años)</button>`}const l=JSON.parse(localStorage.getItem("hof")||"[]");if(l.length)h+=`<div class="tag" style="margin-top:14px">Mis carreras</div>`+l.map(x=>`<div class="note">${fg(x.c)} ${x.n} · ${x.s} temporadas · ${x.t} 🏆 · OVR máx. ${x.o}</div>`).join("")}catch(e){}return h}
+function extras(){let h="";try{const sv=localStorage.getItem("save");if(sv){const s=JSON.parse(sv);h+=`<button onclick="load()">Continuar la carrera de ${s.pname} (${s.age} años)</button><button class="alt" onclick="try{localStorage.removeItem('save')}catch(e){}intro()">Descartar la partida guardada</button>`}const l=JSON.parse(localStorage.getItem("hof")||"[]");if(l.length)h+=`<div class="tag" style="margin-top:14px">Mis carreras</div>`+l.map(x=>`<div class="note">${fg(x.c)} ${x.n} · ${x.s} temporadas · ${x.t} 🏆 · OVR máx. ${x.o}</div>`).join("")+`<button class="alt" onclick="try{localStorage.removeItem('hof')}catch(e){}intro()">Borrar historial de carreras</button>`}catch(e){}return h}
 function copySum(b){const t=window.__sum;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.textContent="¡Copiado!"},()=>{const a=document.createElement("textarea");a.value=t;a.style.cssText="width:100%;height:160px";b.after(a);a.select()})}
 function end(){inGame=false;const TT=H.reduce((a,h)=>a+h.cups.length,0),PK=H.length?Math.max(...H.map(h=>h.ovr)):0;
  try{localStorage.removeItem("save");const l=JSON.parse(localStorage.getItem("hof")||"[]");l.unshift({n:pname,c:nat,t:TT,o:PK,s:H.length});localStorage.setItem("hof",JSON.stringify(l.slice(0,8)))}catch(e){}
@@ -416,8 +418,8 @@ async function pub(){
   if(window.DLL_FIREBASE){
    await loadFB();
    const app=firebase.apps.find(a=>a.name=="carrera")||firebase.initializeApp(window.DLL_FIREBASE,"carrera"),au=app.auth();
-   if(!au.currentUser)await au.signInAnonymously();
-   const ref=app.firestore().collection("carrera_scores").doc(au.currentUser.uid+"_"+m),sn=await ref.get();
+   let u=await new Promise(r=>{const un=au.onAuthStateChanged(x=>{un();r(x)})});if(!u)u=(await au.signInAnonymously()).user;
+   const ref=app.firestore().collection("carrera_scores").doc(u.uid+"_"+m),sn=await ref.get();
    if(sn.exists&&sn.data().s>=sc.s){msg.textContent="Tu mejor puntaje de "+m+" es "+sn.data().s+". Este no lo supera."}
    else{await ref.set(Object.assign(pl,{ts:firebase.firestore.FieldValue.serverTimestamp()}));msg.textContent="¡Publicado! Tu puntaje del mes quedó registrado: "+sc.s+"."}
   }else{
